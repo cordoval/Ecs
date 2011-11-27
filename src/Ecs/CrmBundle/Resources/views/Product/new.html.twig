@@ -1,0 +1,29 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}Emmediate Credit Solutions{% endblock %}
+
+{% block styles %}
+    {{ parent() }}
+{% endblock %}
+
+{% block scripts %}
+
+{% endblock %}
+
+{% block content %}
+
+<form action="{{ path('products_create') }}" data-ajax="false" method="post" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+    <p>
+        <button type="submit" class="submit">Create</button>
+    </p>
+</form>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('products') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+{% endblock %} 

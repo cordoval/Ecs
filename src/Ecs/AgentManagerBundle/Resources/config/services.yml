@@ -1,0 +1,14 @@
+parameters:
+#    ecs_agent_manager.example.class: Ecs\AgentManagerBundle\Example
+
+services:
+#    ecs_agent_manager.example:
+#        class: %ecs_agent_manager.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
+
+services:
+    ecs_agent_manager.registration.form.type:
+        class: Ecs\AgentManagerBundle\Form\Type\RegistrationFormType
+        arguments: [%fos_user.model.user.form_data_class%]
+        tags:
+            - {name: form.type, alias: ecs_agent_registration }

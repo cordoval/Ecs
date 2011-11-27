@@ -1,0 +1,34 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}Emmediate Credit Solutions{% endblock %}
+
+{% block styles %}
+    {{ parent() }}
+{% endblock %}
+
+{% block scripts %}
+
+{% endblock %}
+
+{% block content %}
+
+<script language="javascript" type="text/javascript"> 
+    $(document).ready(function(){
+        $("#newCustomerForm").wl_Form({ajax:false});
+    });
+</script>    
+<form id="newCustomerForm" action="{{ path('customer_create') }}" class="g12" method="post" {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
+        <p>
+            <button type="submit">Create</button>
+        </p>
+    </form>
+
+    <ul class="record_actions">
+        <li>
+            <a href="{{ path('customer') }}">
+                Back to the list
+            </a>
+        </li>
+    </ul>
+{% endblock %} 

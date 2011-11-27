@@ -1,0 +1,75 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}Emmediate Credit Solutions{% endblock %}
+
+{% block styles %}
+    {{ parent() }}
+{% endblock %}
+
+{% block scripts %}
+
+{% endblock %}
+
+{% block content %}
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Registerdate</th>
+                <th>Firstname</th>
+                <th>Middlename</th>
+                <th>Gender</th>
+                <th>Dob</th>
+                <th>Emailaddress</th>
+                <th>Phoneprimary</th>
+                <th>Phonesecondary</th>
+                <th>Address1</th>
+                <th>Address2</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Zip</th>
+                <th>Country</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('customer_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{% if entity.registerDate %}{{ entity.registerDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.firstName }}</td>
+                <td>{{ entity.middleName }}</td>
+                <td>{{ entity.gender }}</td>
+                <td>{% if entity.dob %}{{ entity.dob|date('Y-m-d H:i:s') }}{% endif%}</td>
+                <td>{{ entity.emailAddress }}</td>
+                <td>{{ entity.phonePrimary }}</td>
+                <td>{{ entity.phoneSecondary }}</td>
+                <td>{{ entity.address1 }}</td>
+                <td>{{ entity.address2 }}</td>
+                <td>{{ entity.city }}</td>
+                <td>{{ entity.state }}</td>
+                <td>{{ entity.zip }}</td>
+                <td>{{ entity.country }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('customer_show', { 'id': entity.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('customer_edit', { 'id': entity.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('customer_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+{% endblock %} 

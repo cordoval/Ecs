@@ -1,0 +1,16 @@
+home:
+  pattern:  /
+  defaults: { _controller: EcsCrmBundle:Default:index }
+
+EcsCrmCustomer:
+  resource: "@EcsCrmBundle/Resources/config/routing/customer.yml"
+  prefix:   /customers
+  
+EcsCrmProducts:
+  resource: "@EcsCrmBundle/Resources/config/routing/product.yml"
+  prefix:   /products
+  
+EcsCrmPaymentMethods:
+  resource: "@EcsCrmBundle/Resources/config/routing/paymentmethod.yml"
+  prefix:   /paymentmethods
+  

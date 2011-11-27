@@ -1,0 +1,30 @@
+paymentmethod:
+    pattern:  /
+    defaults: { _controller: "EcsCrmBundle:PaymentMethod:index" }
+
+paymentmethod_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "EcsCrmBundle:PaymentMethod:show" }
+
+paymentmethod_new:
+    pattern:  /new
+    defaults: { _controller: "EcsCrmBundle:PaymentMethod:new" }
+
+paymentmethod_create:
+    pattern:  /create
+    defaults: { _controller: "EcsCrmBundle:PaymentMethod:create" }
+    requirements: { _method: post }
+
+paymentmethod_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "EcsCrmBundle:PaymentMethod:edit" }
+
+paymentmethod_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "EcsCrmBundle:PaymentMethod:update" }
+    requirements: { _method: post }
+
+paymentmethod_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "EcsCrmBundle:PaymentMethod:delete" }
+    requirements: { _method: post }

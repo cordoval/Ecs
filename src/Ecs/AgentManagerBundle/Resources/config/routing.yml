@@ -1,0 +1,9 @@
+EcsAgentManagerBundle_homepage:
+    pattern:  /agentmanager
+    defaults: { _controller: EcsAgentManagerBundle:Default:index }
+EcsAgentManagerBundle_empositions:
+    resource: "@EcsAgentManagerBundle/Resources/config/routing/user.yml"
+    prefix:   /empositions
+EcsAgentManagerBundle_EmployeeJobs:
+    resource: "@EcsAgentManagerBundle/Resources/config/routing/employeejobs.yml"
+    prefix:   /agentmanager/jobs

@@ -1,0 +1,30 @@
+products:
+    pattern:  /
+    defaults: { _controller: "EcsCrmBundle:Product:index" }
+
+products_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "EcsCrmBundle:Product:show" }
+
+products_new:
+    pattern:  /new
+    defaults: { _controller: "EcsCrmBundle:Product:new" }
+
+products_create:
+    pattern:  /create
+    defaults: { _controller: "EcsCrmBundle:Product:create" }
+    requirements: { _method: post }
+
+products_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "EcsCrmBundle:Product:edit" }
+
+products_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "EcsCrmBundle:Product:update" }
+    requirements: { _method: post }
+
+products_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "EcsCrmBundle:Product:delete" }
+    requirements: { _method: post }

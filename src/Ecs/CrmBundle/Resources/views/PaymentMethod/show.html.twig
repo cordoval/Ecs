@@ -1,0 +1,73 @@
+<h1>PaymentMethod</h1>
+
+<table class="record_properties">
+    <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ entity.id }}</td>
+        </tr>
+        <tr>
+            <th>Cardtype</th>
+            <td>{{ entity.cardtype }}</td>
+        </tr>
+        <tr>
+            <th>Cardnumber</th>
+            <td>{{ entity.cardnumber }}</td>
+        </tr>
+        <tr>
+            <th>Expmonth</th>
+            <td>{{ entity.expmonth }}</td>
+        </tr>
+        <tr>
+            <th>Expyear</th>
+            <td>{{ entity.expyear }}</td>
+        </tr>
+        <tr>
+            <th>Nameoncard</th>
+            <td>{{ entity.nameoncard }}</td>
+        </tr>
+        <tr>
+            <th>Firstname</th>
+            <td>{{ entity.firstname }}</td>
+        </tr>
+        <tr>
+            <th>Lastname</th>
+            <td>{{ entity.lastname }}</td>
+        </tr>
+        <tr>
+            <th>Address</th>
+            <td>{{ entity.address }}</td>
+        </tr>
+        <tr>
+            <th>City</th>
+            <td>{{ entity.city }}</td>
+        </tr>
+        <tr>
+            <th>State</th>
+            <td>{{ entity.state }}</td>
+        </tr>
+        <tr>
+            <th>Zip</th>
+            <td>{{ entity.zip }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('paymentmethod') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('paymentmethod_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('paymentmethod_delete', { 'id': entity.id }) }}" method="post">
+            {{ form_widget(delete_form) }}
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+</ul>

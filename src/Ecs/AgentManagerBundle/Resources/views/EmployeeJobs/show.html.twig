@@ -1,0 +1,49 @@
+<h1>EmployeeJobs</h1>
+
+<table class="record_properties">
+    <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ entity.id }}</td>
+        </tr>
+        <tr>
+            <th>Job_title</th>
+            <td>{{ entity.jobtitle }}</td>
+        </tr>
+        <tr>
+            <th>Job_description</th>
+            <td>{{ entity.jobdescription }}</td>
+        </tr>
+        <tr>
+            <th>Starting_salary</th>
+            <td>{{ entity.startingsalary }}</td>
+        </tr>
+        <tr>
+            <th>Positions_available</th>
+            <td>{{ entity.positionsavailable }}</td>
+        </tr>
+        <tr>
+            <th>Default_role</th>
+            <td>{{ entity.defaultrole }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('agentmanager_jobs') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('agentmanager_jobs_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('agentmanager_jobs_delete', { 'id': entity.id }) }}" method="post">
+            {{ form_widget(delete_form) }}
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+</ul>

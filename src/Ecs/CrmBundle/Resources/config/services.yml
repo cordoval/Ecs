@@ -1,0 +1,7 @@
+parameters:
+#    ecs_crm.example.class: Ecs\CrmBundle\Example
+
+services:
+#    ecs_crm.example:
+#        class: %ecs_crm.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

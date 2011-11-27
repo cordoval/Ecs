@@ -1,0 +1,30 @@
+agentmanager:
+    pattern:  /
+    defaults: { _controller: "EcsAgentManagerBundle:User:index" }
+
+agentmanager_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "EcsAgentManagerBundle:User:show" }
+
+agentmanager_new:
+    pattern:  /new
+    defaults: { _controller: "EcsAgentManagerBundle:User:new" }
+
+agentmanager_create:
+    pattern:  /create
+    defaults: { _controller: "EcsAgentManagerBundle:User:create" }
+    requirements: { _method: post }
+
+agentmanager_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "EcsAgentManagerBundle:User:edit" }
+
+agentmanager_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "EcsAgentManagerBundle:User:update" }
+    requirements: { _method: post }
+
+agentmanager_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "EcsAgentManagerBundle:User:delete" }
+    requirements: { _method: post }

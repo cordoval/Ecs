@@ -1,0 +1,30 @@
+customer:
+    pattern:  /
+    defaults: { _controller: "EcsCrmBundle:Customer:index" }
+
+customer_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "EcsCrmBundle:Customer:show" }
+
+customer_new:
+    pattern:  /new
+    defaults: { _controller: "EcsCrmBundle:Customer:new" }
+
+customer_create:
+    pattern:  /create
+    defaults: { _controller: "EcsCrmBundle:Customer:create" }
+    requirements: { _method: post }
+
+customer_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "EcsCrmBundle:Customer:edit" }
+
+customer_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "EcsCrmBundle:Customer:update" }
+    requirements: { _method: post }
+
+customer_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "EcsCrmBundle:Customer:delete" }
+    requirements: { _method: post }

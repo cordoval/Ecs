@@ -1,0 +1,57 @@
+<h1>PaymentMethod list</h1>
+
+<table class="records_list">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Cardtype</th>
+            <th>Cardnumber</th>
+            <th>Expmonth</th>
+            <th>Expyear</th>
+            <th>Nameoncard</th>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Zip</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td><a href="{{ path('paymentmethod_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+            <td>{{ entity.cardtype }}</td>
+            <td>{{ entity.cardnumber }}</td>
+            <td>{{ entity.expmonth }}</td>
+            <td>{{ entity.expyear }}</td>
+            <td>{{ entity.nameoncard }}</td>
+            <td>{{ entity.firstname }}</td>
+            <td>{{ entity.lastname }}</td>
+            <td>{{ entity.address }}</td>
+            <td>{{ entity.city }}</td>
+            <td>{{ entity.state }}</td>
+            <td>{{ entity.zip }}</td>
+            <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('paymentmethod_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('paymentmethod_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<ul>
+    <li>
+        <a href="{{ path('paymentmethod_new') }}">
+            Create a new entry
+        </a>
+    </li>
+</ul>

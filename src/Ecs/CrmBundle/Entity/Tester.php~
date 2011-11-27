@@ -1,0 +1,169 @@
+<?php
+
+namespace Ecs\CrmBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Ecs\CrmBundle\Entity\Tester
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="Ecs\CrmBundle\Entity\TesterRepository")
+ */
+class Tester
+{
+    /**
+     * @var integer $id
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string $testfield1
+     *
+     * @ORM\Column(name="testfield1", type="string", length=255)
+     */
+    private $testfield1;
+
+    /**
+     * @var string $testfield2
+     *
+     * @ORM\Column(name="testfield2", type="string", length=255)
+     */
+    private $testfield2;
+
+    /**
+     * @var string $testfield3
+     *
+     * @ORM\Column(name="testfield3", type="string", length=255)
+     */
+    private $testfield3;
+
+    /**
+     * @var datetime $Birthday
+     *
+     * @ORM\Column(name="Birthday", type="datetime")
+     */
+    private $Birthday;
+
+    /**
+     * @var string $age
+     *
+     * @ORM\Column(name="age", type="string", length=255)
+     */
+    private $age;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set testfield1
+     *
+     * @param string $testfield1
+     */
+    public function setTestfield1($testfield1)
+    {
+        $this->testfield1 = $testfield1;
+    }
+
+    /**
+     * Get testfield1
+     *
+     * @return string 
+     */
+    public function getTestfield1()
+    {
+        return $this->testfield1;
+    }
+
+    /**
+     * Set testfield2
+     *
+     * @param string $testfield2
+     */
+    public function setTestfield2($testfield2)
+    {
+        $this->testfield2 = $testfield2;
+    }
+
+    /**
+     * Get testfield2
+     *
+     * @return string 
+     */
+    public function getTestfield2()
+    {
+        return $this->testfield2;
+    }
+
+    /**
+     * Set testfield3
+     *
+     * @param string $testfield3
+     */
+    public function setTestfield3($testfield3)
+    {
+        $this->testfield3 = $testfield3;
+    }
+
+    /**
+     * Get testfield3
+     *
+     * @return string 
+     */
+    public function getTestfield3()
+    {
+        return $this->testfield3;
+    }
+
+    /**
+     * Set Birthday
+     *
+     * @param datetime $birthday
+     */
+    public function setBirthday($birthday)
+    {
+        $this->Birthday = $birthday;
+    }
+
+    /**
+     * Get Birthday
+     *
+     * @return datetime 
+     */
+    public function getBirthday()
+    {
+        return $this->Birthday;
+    }
+
+    /**
+     * Set age
+     *
+     * @param string $age
+     */
+    public function setAge($age)
+    {
+        $this->age = $age;
+    }
+
+    /**
+     * Get age
+     *
+     * @return string 
+     */
+    public function getAge()
+    {
+        return $this->age;
+    }
+}

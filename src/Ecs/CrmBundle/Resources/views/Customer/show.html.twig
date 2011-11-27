@@ -1,0 +1,152 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}Emmediate Credit Solutions{% endblock %}
+
+{% block styles %}
+    {{ parent() }}
+{% endblock %}
+
+{% block scripts %}
+
+{% endblock %}
+
+{% block content %}
+<script>
+$(document).ready(function(){
+	$("#newPaymentMethodForm").dialog({
+		autoOpen: false,
+		title: "New Payment Method",
+		width: 500,
+		height: 300,
+		buttons: {
+			"Add Card": function(){
+				presult =
+					$.post(
+						'{{ path('paymentmethod_create ') }}',
+						$('newCustomerForm').serialize(),
+						function(data){
+							$.saySuccess("Payment Type Added!");
+						},
+						'json'
+					).error(function() {
+						$.sayError("Unable to add payment type!");
+				});
+				//Submit Form
+				//Clear Form
+			},
+			"Cancel": function(){
+				$(this).dialog("close");
+			}
+		}
+	});
+
+    $("#newPaymentMethod").click(function(e){
+    	e.preventDefault();
+        $("#newPaymentMethodForm").dialog("open");
+    });
+});
+</script>
+
+<div class="g6 widgets">
+     <div class="widget sortable" id="db_customer">
+          <h3 class="handle">customer Information</h3>
+               <table class="table">
+                   <tbody>
+                       <tr>
+                           <th>Id</th>
+                           <td>{{ entity.id }}</td>
+                       </tr>
+                       <tr>
+                           <th>Registerdate</th>
+                           <td>{{ entity.registerDate|date('Y-m-d H:i:s') }}</td>
+                       </tr>
+                       <tr>
+                       <tr>
+                           <th>Firstname</th>
+                           <td>{{ entity.firstName }}</td>
+                       </tr>
+                       <tr>
+                           <th>Middlename</th>
+                           <td>{{ entity.middleName }}</td>
+                       </tr>
+                       <tr>
+                           <th>Gender</th>
+                           <td>{{ entity.gender }}</td>
+                       </tr>
+                       <tr>
+                           <th>Dob</th>
+                           <td>{{ entity.dob|date('Y-m-d H:i:s') }}</td>
+                       </tr>
+                       <tr>
+                           <th>Emailaddress</th>
+                           <td>{{ entity.emailAddress }}</td>
+                       </tr>
+                       <tr>
+                           <th>Phoneprimary</th>
+                           <td>{{ entity.phonePrimary }}</td>
+                       </tr>
+                       <tr>
+                           <th>Phonesecondary</th>
+                           <td>{{ entity.phoneSecondary }}</td>
+                       </tr>
+                       <tr>
+                           <th>Address1</th>
+                           <td>{{ entity.address1 }}</td>
+                       </tr>
+                       <tr>
+                           <th>Address2</th>
+                           <td>{{ entity.address2 }}</td>
+                       </tr>
+                       <tr>
+                           <th>City</th>
+                           <td>{{ entity.city }}</td>
+                       </tr>
+                       <tr>
+                           <th>State</th>
+                           <td>{{ entity.state }}</td>
+                       </tr>
+                       <tr>
+                           <th>Zip</th>
+                           <td>{{ entity.zip }}</td>
+                       </tr>
+                       <tr>
+                           <th>Country</th>
+                           <td>{{ entity.country }}</td>
+                       </tr>
+                   </tbody>
+               </table>
+          <p><a class="btn small" href="{{ path('customer_edit', { 'id': entity.id }) }}">Edit</a></p>
+     </div>
+</div>
+
+<div class="g6 widgets">
+     <div class="widget sortable" id="db_payments">
+          <h3>Payment Methods</h3>
+          <div>Payment Methods</div>
+          <p><a class="btn small" href="{{ path('paymentmethod_new') }}" id="newPaymentMethod">New Payment Method</a></p>
+     </div>
+          
+     <div class="widget sortable" id="db_purchases">
+          <h3>Purchases</h3>
+          <div>bla bla bla</div>
+     </div>
+</div>
+<div class="g12 widgets">
+     <div class="widget" id="transactions_widget">
+          <h3>Transcations</h3>
+          <div>
+               bla bla blas
+          </div>
+     </div>
+</div>
+
+<div id="newPaymentMethodForm" style="display: none;" class="g6">
+	<form id="newCustomerForm"  method="post" {{ form_enctype(newPaymentMethod_form) }}>
+        {{ form_widget(newPaymentMethod_form) }}
+        <p>
+            <button type="submit">Create</button>
+        </p>
+    </form>
+</div>
+
+{% endblock %} 
