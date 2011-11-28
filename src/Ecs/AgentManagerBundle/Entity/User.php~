@@ -363,26 +363,4 @@ class User extends BaseUser
     {
         return $this->notes;
     }
-
-    /**
-     * Set employeejob
-     *
-     * @param Ecs\AgentManagerBundle\Entity\EmployeeJob $employeejob
-     * @return User
-     */
-    public function setEmployeejob(\Ecs\AgentManagerBundle\Entity\EmployeeJob $employeejob=null)
-    {
-        $this->employeejob = $employeejob;
-        return $this;
-    }
-
-    /**
-     * Get employeejob
-     *
-     * @return Ecs\AgentManagerBundle\Entity\EmployeeJob 
-     */
-    public function getEmployeejob()
-    {
-        return $this->employeejob;
-    }
 }

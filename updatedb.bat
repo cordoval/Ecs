@@ -1,1 +1,1 @@
-php app\console doctrine:schema:update
+php app\console doctrine:schema:update %*

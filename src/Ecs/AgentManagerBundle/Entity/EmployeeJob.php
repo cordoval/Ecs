@@ -5,12 +5,12 @@ namespace Ecs\AgentManagerBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Ecs\AgentManagerBundle\Entity\EmployeeJobs
+ * Ecs\AgentManagerBundle\Entity\EmployeeJob
  *
  * @ORM\Table()
  * @ORM\Entity
  */
-class EmployeeJobs
+class EmployeeJob
 {
     /**
      * @var integer $id
@@ -56,6 +56,15 @@ class EmployeeJobs
      */
     private $default_role;
 
+     /**
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="employeejob")
+     */
+	private $users;
+
+	function __construct()
+	{
+		$this->users = new ArrayCollection();
+	}
 
     /**
      * Get id
@@ -175,5 +184,27 @@ class EmployeeJobs
     public function getDefaultRole()
     {
         return $this->default_role;
+    }
+
+    /**
+     * Set users
+     *
+     * @param Ecs\AgentManagerBundle\Entity\User $users
+     * @return EmployeeJob
+     */
+    public function setUsers(\Ecs\AgentManagerBundle\Entity\User $users=null)
+    {
+        $this->users = $users;
+        return $this;
+    }
+
+    /**
+     * Get users
+     *
+     * @return Ecs\AgentManagerBundle\Entity\User 
+     */
+    public function getUsers()
+    {
+        return $this->users;
     }
 }

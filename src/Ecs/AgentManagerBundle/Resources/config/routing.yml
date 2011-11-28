@@ -1,9 +1,23 @@
-EcsAgentManagerBundle_homepage:
-    pattern:  /agentmanager
-    defaults: { _controller: EcsAgentManagerBundle:Default:index }
-EcsAgentManagerBundle_empositions:
-    resource: "@EcsAgentManagerBundle/Resources/config/routing/user.yml"
-    prefix:   /empositions
+EcsAgentManagerBundle_Users:
+    resource: "@EcsAgentManagerBundle/Resources/config/routing/User.yml"
+    prefix:   /
+
 EcsAgentManagerBundle_EmployeeJobs:
     resource: "@EcsAgentManagerBundle/Resources/config/routing/employeejobs.yml"
-    prefix:   /agentmanager/jobs
+    prefix:   /jobs
+
+fos_user_profile:
+    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
+    prefix: /profile
+
+#fos_user_register:
+#    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
+#    prefix: /register
+
+#fos_user_resetting:
+#    resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
+#    prefix: /resetting
+
+fos_user_change_password:
+    resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
+    prefix: /change-password
