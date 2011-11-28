@@ -182,8 +182,8 @@
 
         <section id="content">
 			<div id="notificationDiv"></div>
-            <h1>{{ pageHeading }}</h1> 
-            <p>{{ pageSubHeading }}</p>
+            <h1>{% block title %} {{ pageHeading }} {% endblock %} </h1>
+            <p>{% block subtitle %} {{ pageSubHeading }} {% endblock %} </p>
 
             {% block content %}
             <p>Content Goes Here!</p>
