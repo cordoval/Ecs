@@ -1,0 +1,82 @@
+Ecs\CrmBundle\Entity\Product:
+    type: entity
+    table: product
+    fields:
+        id:
+            type: integer
+            length: null
+            precision: 0
+            scale: 0
+            nullable: false
+            unique: false
+            id: true
+            generator:
+                strategy: IDENTITY
+        name:
+            type: string
+            length: 25
+            precision: 0
+            scale: 0
+            nullable: false
+            unique: false
+        price:
+            type: decimal
+            length: null
+            precision: 0
+            scale: 0
+            nullable: false
+            unique: false
+        description:
+            type: string
+            length: 255
+            precision: 0
+            scale: 0
+            nullable: false
+            unique: false
+        reoccurring:
+            type: boolean
+            length: null
+            precision: 0
+            scale: 0
+            nullable: false
+            unique: false
+        billFrequency:
+            type: smallint
+            length: null
+            precision: 0
+            scale: 0
+            nullable: true
+            unique: false
+            column: bill_frequency
+        billTimes:
+            type: smallint
+            length: null
+            precision: 0
+            scale: 0
+            nullable: true
+            unique: false
+            column: bill_times
+        trial:
+            type: boolean
+            length: null
+            precision: 0
+            scale: 0
+            nullable: true
+            unique: false
+        trialLength:
+            type: smallint
+            length: null
+            precision: 0
+            scale: 0
+            nullable: true
+            unique: false
+            column: trial_length
+        billdelay:
+            type: smallint
+            length: null
+            precision: 0
+            scale: 0
+            nullable: true
+            unique: false
+            column: bill_delay
+    lifecycleCallbacks: {  }

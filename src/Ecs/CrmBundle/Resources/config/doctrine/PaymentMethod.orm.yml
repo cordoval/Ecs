@@ -1,0 +1,103 @@
+Ecs\CrmBundle\Entity\PaymentMethod:
+    type: entity
+    table: null
+    repositoryClass: Ecs\CrmBundle\Entity\PaymentMethodRepository
+    fields:
+        id:
+            type: integer
+            length: null
+            precision: 0
+            scale: 0
+            nullable: false
+            unique: false
+            id: true
+            generator:
+                strategy: IDENTITY
+        cardtype:
+            type: string
+            length: 5
+            precision: 0
+            scale: 0
+            nullable: false
+            unique: false
+        cardnumber:
+            type: string
+            length: 17
+            precision: 0
+            scale: 0
+            nullable: false
+            unique: false
+        expmonth:
+            type: string
+            length: 2
+            precision: 0
+            scale: 0
+            nullable: false
+            unique: false
+        expyear:
+            type: string
+            length: 2
+            precision: 0
+            scale: 0
+            nullable: false
+            unique: false
+        nameoncard:
+            type: string
+            length: 255
+            precision: 0
+            scale: 0
+            nullable: false
+            unique: false
+        firstname:
+            type: string
+            length: 255
+            precision: 0
+            scale: 0
+            nullable: false
+            unique: false
+        lastname:
+            type: string
+            length: 255
+            precision: 0
+            scale: 0
+            nullable: false
+            unique: false
+        address:
+            type: string
+            length: 255
+            precision: 0
+            scale: 0
+            nullable: false
+            unique: false
+        city:
+            type: string
+            length: 255
+            precision: 0
+            scale: 0
+            nullable: false
+            unique: false
+        state:
+            type: string
+            length: 2
+            precision: 0
+            scale: 0
+            nullable: false
+            unique: false
+        zip:
+            type: string
+            length: 15
+            precision: 0
+            scale: 0
+            nullable: false
+            unique: false
+    manyToOne:
+        customer:
+            targetEntity: Ecs\CrmBundle\Entity\Customer
+            cascade: {  }
+            mappedBy: null
+            inversedBy: paymentmethods
+            joinColumns:
+                customer_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

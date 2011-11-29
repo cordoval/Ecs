@@ -2,7 +2,7 @@
 
 namespace Ecs\CrmBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
+//use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
@@ -70,6 +70,13 @@ class Customer
     private $dob;
 
     /**
+     * @var string $ssnumber
+     *
+     * @ORM\Column(name="ssnumber", type="string", length=9, nullable=true)
+     */
+    private $ssnumber;
+
+    /**
      * @var string $emailAddress
      *
      * @ORM\Column(name="email_address", type="string", length=75, nullable=true)
@@ -132,19 +139,75 @@ class Customer
      */
     private $country;
 
-        /**
+
+	/**
+	 * @var string $ismarried
+	 *
+	 * @ORM\Column(name="ismarried", type="booleon", nullable=true)
+	 */
+	private $ismarried;
+
+    /**
      * @var string $bestContactTime
      *
      * @ORM\Column(name="best_contact_time", type="string", length=25, nullable=true)
      */
     private $bestContactTime;
-     
-    
-    function __construct()
+
+	/**
+	 * @var booleon $ownhome
+	 *
+	 * @ORM\Column(name="ownhome", type="booleon", nullable=true)
+	 */
+	private $ownhome;
+
+	/**
+	 * @var booleon $homepayment
+	 *
+	 * @ORM\Column(name="homepayment", type="decimal", nullable=true)
+	 */
+	private $homepayment;
+
+	/**
+	 * @var booleon $timeataddress
+	 *
+	 * @ORM\Column(name="timeataddress", type="string", length=255, nullable=true)
+	 */
+	private $timeataddress;
+
+	/**
+	 * @var booleon $employer
+	 *
+	 * @ORM\Column(name="employer", type="string", length=255, nullable=true)
+	 */
+	private $employer;
+
+	/**
+	 * @var booleon $position
+	 *
+	 * @ORM\Column(name="position", type="string", length=255, nullable=true)
+	 */
+	private $position;
+
+	/**
+	 * @var booleon $timeatemployer
+	 *
+	 * @ORM\Column(name="timeatemployer", type="string", length=255, nullable=true)
+	 */
+	private $timeatemployer;
+
+	/**
+	 * @var $monthlyincome
+	 *
+	 * @ORM\Column(name="monthlyincome", type="integer", nullable=true)
+	 */
+	private $monhlyincome;
+
+	function __construct()
     {
          $this->paymentMethods = new ArrayCollection();
     }
-    
+
     
     /**
      * Get id
@@ -494,5 +557,230 @@ class Customer
     public function getPaymentmethods()
     {
         return $this->paymentmethods;
+    }
+    /**
+     * @var Ecs\CrmBundle\Entity\LeadType
+     */
+    private $leadType;
+
+
+    /**
+     * Set ssnumber
+     *
+     * @param string $ssnumber
+     * @return Customer
+     */
+    public function setSsnumber($ssnumber)
+    {
+        $this->ssnumber = $ssnumber;
+        return $this;
+    }
+
+    /**
+     * Get ssnumber
+     *
+     * @return string 
+     */
+    public function getSsnumber()
+    {
+        return $this->ssnumber;
+    }
+
+    /**
+     * Set ismarried
+     *
+     * @param booleon $ismarried
+     * @return Customer
+     */
+    public function setIsmarried(\booleon $ismarried)
+    {
+        $this->ismarried = $ismarried;
+        return $this;
+    }
+
+    /**
+     * Get ismarried
+     *
+     * @return booleon 
+     */
+    public function getIsmarried()
+    {
+        return $this->ismarried;
+    }
+
+    /**
+     * Set ownhome
+     *
+     * @param booleon $ownhome
+     * @return Customer
+     */
+    public function setOwnhome(\booleon $ownhome)
+    {
+        $this->ownhome = $ownhome;
+        return $this;
+    }
+
+    /**
+     * Get ownhome
+     *
+     * @return booleon 
+     */
+    public function getOwnhome()
+    {
+        return $this->ownhome;
+    }
+
+    /**
+     * Set homepayment
+     *
+     * @param decimal $homepayment
+     * @return Customer
+     */
+    public function setHomepayment($homepayment)
+    {
+        $this->homepayment = $homepayment;
+        return $this;
+    }
+
+    /**
+     * Get homepayment
+     *
+     * @return decimal 
+     */
+    public function getHomepayment()
+    {
+        return $this->homepayment;
+    }
+
+    /**
+     * Set timeataddress
+     *
+     * @param string $timeataddress
+     * @return Customer
+     */
+    public function setTimeataddress($timeataddress)
+    {
+        $this->timeataddress = $timeataddress;
+        return $this;
+    }
+
+    /**
+     * Get timeataddress
+     *
+     * @return string 
+     */
+    public function getTimeataddress()
+    {
+        return $this->timeataddress;
+    }
+
+    /**
+     * Set employer
+     *
+     * @param string $employer
+     * @return Customer
+     */
+    public function setEmployer($employer)
+    {
+        $this->employer = $employer;
+        return $this;
+    }
+
+    /**
+     * Get employer
+     *
+     * @return string 
+     */
+    public function getEmployer()
+    {
+        return $this->employer;
+    }
+
+    /**
+     * Set position
+     *
+     * @param string $position
+     * @return Customer
+     */
+    public function setPosition($position)
+    {
+        $this->position = $position;
+        return $this;
+    }
+
+    /**
+     * Get position
+     *
+     * @return string 
+     */
+    public function getPosition()
+    {
+        return $this->position;
+    }
+
+    /**
+     * Set timeatemployer
+     *
+     * @param string $timeatemployer
+     * @return Customer
+     */
+    public function setTimeatemployer($timeatemployer)
+    {
+        $this->timeatemployer = $timeatemployer;
+        return $this;
+    }
+
+    /**
+     * Get timeatemployer
+     *
+     * @return string 
+     */
+    public function getTimeatemployer()
+    {
+        return $this->timeatemployer;
+    }
+
+    /**
+     * Set monhlyincome
+     *
+     * @param integer $monhlyincome
+     * @return Customer
+     */
+    public function setMonhlyincome($monhlyincome)
+    {
+        $this->monhlyincome = $monhlyincome;
+        return $this;
+    }
+
+    /**
+     * Get monhlyincome
+     *
+     * @return integer 
+     */
+    public function getMonhlyincome()
+    {
+        return $this->monhlyincome;
+    }
+
+    /**
+     * Set leadType
+     *
+     * @param Ecs\CrmBundle\Entity\LeadType $leadType
+     * @return Customer
+     */
+    public function setLeadType(\Ecs\CrmBundle\Entity\LeadType $leadType=null)
+    {
+        $this->leadType = $leadType;
+        return $this;
+    }
+
+    /**
+     * Get leadType
+     *
+     * @return Ecs\CrmBundle\Entity\LeadType 
+     */
+    public function getLeadType()
+    {
+        return $this->leadType;
     }
 }

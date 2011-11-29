@@ -1,0 +1,16 @@
+Ecs\CrmBundle\Entity\LeadType:
+    type: entity
+    table: null
+    repositoryClass: Ecs\CrmBundle\Entity\LeadTypeRepository
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        type_name:
+            type: string
+            length: 255
+        description:
+            type: text
+    lifecycleCallbacks: {  }

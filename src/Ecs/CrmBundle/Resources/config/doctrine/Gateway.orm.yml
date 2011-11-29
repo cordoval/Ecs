@@ -1,0 +1,44 @@
+Ecs\CrmBundle\Entity\Gateway:
+    type: entity
+    table: null
+    repositoryClass: Ecs\CrmBundle\Entity\GatewayRepository
+    fields:
+        id:
+            type: integer
+            length: null
+            precision: 0
+            scale: 0
+            nullable: false
+            unique: false
+            id: true
+            generator:
+                strategy: IDENTITY
+        name:
+            type: string
+            length: 255
+            precision: 0
+            scale: 0
+            nullable: false
+            unique: false
+        codeclass:
+            type: string
+            length: 255
+            precision: 0
+            scale: 0
+            nullable: false
+            unique: false
+        apikey:
+            type: string
+            length: 255
+            precision: 0
+            scale: 0
+            nullable: false
+            unique: false
+        apipassword:
+            type: string
+            length: 255
+            precision: 0
+            scale: 0
+            nullable: false
+            unique: false
+    lifecycleCallbacks: {  }

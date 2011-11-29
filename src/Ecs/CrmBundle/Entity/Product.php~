@@ -52,32 +52,37 @@ class Product
     /**
      * @var smallint $billFrequency
      *
-     * @ORM\Column(name="bill_frequency", type="smallint", nullable=false)
+     * @ORM\Column(name="bill_frequency", type="smallint", nullable=true)
      */
     private $billFrequency;
 
     /**
      * @var smallint $billTimes
      *
-     * @ORM\Column(name="bill_times", type="smallint", nullable=false)
+     * @ORM\Column(name="bill_times", type="smallint", nullable=true)
      */
     private $billTimes;
 
     /**
      * @var boolean $trial
      *
-     * @ORM\Column(name="trial", type="boolean", nullable=false)
+     * @ORM\Column(name="trial", type="boolean", nullable=true)
      */
     private $trial;
 
     /**
      * @var smallint $trialLength
      *
-     * @ORM\Column(name="trial_length", type="smallint", nullable=false)
+     * @ORM\Column(name="trial_length", type="smallint", nullable=true)
      */
     private $trialLength;
 
-
+    /**
+     * @var smallint $billdelay
+     *
+     * @ORM\Column(name="bill_delay", type="smallint", nullable=true)
+     */
+    private $billdelay;
 
     /**
      * Get idproduct
@@ -248,6 +253,27 @@ class Product
     {
         return $this->trialLength;
     }
+
+    /**
+     * Set billdelay
+     *
+     * @param smallint $billdelay
+     */
+    public function setBillDelay($billdelay)
+    {
+        $this->billdelay = $billdelay;
+    }
+
+    /**
+     * Get getBillDelay
+     *
+     * @return smallint 
+     */
+    public function getBillDelay()
+    {
+        return $this->billdelay;
+    }
+
 
     /**
      * Get id

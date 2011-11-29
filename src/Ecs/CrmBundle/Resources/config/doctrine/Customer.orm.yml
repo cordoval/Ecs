@@ -1,0 +1,209 @@
+Ecs\CrmBundle\Entity\Customer:
+    type: entity
+    table: customer
+    fields:
+        id:
+            type: integer
+            length: null
+            precision: 0
+            scale: 0
+            nullable: false
+            unique: true
+            id: true
+            generator:
+                strategy: IDENTITY
+        registerDate:
+            type: date
+            length: null
+            precision: 0
+            scale: 0
+            nullable: false
+            unique: false
+            column: register_date
+        firstName:
+            type: string
+            length: 30
+            precision: 0
+            scale: 0
+            nullable: false
+            unique: false
+            column: first_name
+        middleName:
+            type: string
+            length: 30
+            precision: 0
+            scale: 0
+            nullable: true
+            unique: false
+            column: middle_name
+        lastName:
+            type: string
+            length: 30
+            precision: 0
+            scale: 0
+            nullable: true
+            unique: false
+        gender:
+            type: string
+            length: 5
+            precision: 0
+            scale: 0
+            nullable: true
+            unique: false
+        dob:
+            type: date
+            length: null
+            precision: 0
+            scale: 0
+            nullable: true
+            unique: false
+        ssnumber:
+            type: string
+            length: 9
+            precision: 0
+            scale: 0
+            nullable: true
+            unique: false
+        emailAddress:
+            type: string
+            length: 75
+            precision: 0
+            scale: 0
+            nullable: true
+            unique: false
+            column: email_address
+        phonePrimary:
+            type: string
+            length: 16
+            precision: 0
+            scale: 0
+            nullable: true
+            unique: false
+            column: phone_primary
+        phoneSecondary:
+            type: string
+            length: 16
+            precision: 0
+            scale: 0
+            nullable: true
+            unique: false
+            column: phone_secondary
+        address1:
+            type: string
+            length: 60
+            precision: 0
+            scale: 0
+            nullable: true
+            unique: false
+        address2:
+            type: string
+            length: 60
+            precision: 0
+            scale: 0
+            nullable: true
+            unique: false
+        city:
+            type: string
+            length: 60
+            precision: 0
+            scale: 0
+            nullable: true
+            unique: false
+        state:
+            type: string
+            length: 2
+            precision: 0
+            scale: 0
+            nullable: true
+            unique: false
+        zip:
+            type: string
+            length: 15
+            precision: 0
+            scale: 0
+            nullable: true
+            unique: false
+        country:
+            type: string
+            length: 2
+            precision: 0
+            scale: 0
+            nullable: true
+            unique: false
+        ismarried:
+            type: booleon
+            length: null
+            precision: 0
+            scale: 0
+            nullable: true
+            unique: false
+        bestContactTime:
+            type: string
+            length: 25
+            precision: 0
+            scale: 0
+            nullable: true
+            unique: false
+            column: best_contact_time
+        ownhome:
+            type: booleon
+            length: null
+            precision: 0
+            scale: 0
+            nullable: true
+            unique: false
+        homepayment:
+            type: decimal
+            length: null
+            precision: 0
+            scale: 0
+            nullable: true
+            unique: false
+        timeataddress:
+            type: string
+            length: 255
+            precision: 0
+            scale: 0
+            nullable: true
+            unique: false
+        employer:
+            type: string
+            length: 255
+            precision: 0
+            scale: 0
+            nullable: true
+            unique: false
+        position:
+            type: string
+            length: 255
+            precision: 0
+            scale: 0
+            nullable: true
+            unique: false
+        timeatemployer:
+            type: string
+            length: 255
+            precision: 0
+            scale: 0
+            nullable: true
+            unique: false
+        monhlyincome:
+            type: integer
+            length: null
+            precision: 0
+            scale: 0
+            nullable: true
+            unique: false
+            column: monthlyincome
+    oneToMany:
+        paymentMethods:
+            targetEntity: Ecs\CrmBundle\Entity\PaymentMethod
+            cascade: {  }
+            mappedBy: customer
+            inversedBy: null
+            orphanRemoval: false
+            orderBy: null
+    manyToOne:
+        leadType:
+            targetEntity: LeadType
+    lifecycleCallbacks: {  }

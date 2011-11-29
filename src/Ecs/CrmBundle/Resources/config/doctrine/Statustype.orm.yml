@@ -1,0 +1,30 @@
+Ecs\CrmBundle\Entity\Statustype:
+    type: entity
+    table: statustype
+    fields:
+        id:
+            type: integer
+            length: null
+            precision: 0
+            scale: 0
+            nullable: false
+            unique: false
+            id: true
+            generator:
+                strategy: IDENTITY
+        name:
+            type: string
+            length: 25
+            precision: 0
+            scale: 0
+            nullable: false
+            unique: false
+    oneToMany:
+        customers:
+            targetEntity: Ecs\CrmBundle\Entity\Customer
+            cascade: {  }
+            mappedBy: Statustype
+            inversedBy: null
+            orphanRemoval: false
+            orderBy: null
+    lifecycleCallbacks: {  }
