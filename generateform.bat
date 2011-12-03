@@ -1,1 +1,1 @@
-php app\console doctrine:generate:form
+php app\console doctrine:generate:form %*

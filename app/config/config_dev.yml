@@ -21,3 +21,5 @@ monolog:
 
 assetic:
     use_controller: true
+twig:
+    debug: %kernel.debug%

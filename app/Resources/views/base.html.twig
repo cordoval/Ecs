@@ -152,9 +152,10 @@
                 <li class="i_users_2"><a href="{{ url('customer') }} "><span>CRM</span></a></li>
                 <li class="i_admin_user"><a href="#"><span>Agents</span></a>
                 	<ul>
-                		<li class="i_user"><a href="#"><span>Job Titles</span></a></li>
-                		<li>&nbsp;</li>
-                	</ul>
+                		<li><a href="{{ url('agentmanager')}}"><span>Employees</span></a></li>
+                    	<li><a href="{{ url('agentmanager_jobs')}}"><span>Positions</span></a></li>
+                        <li><a href="{{ url('roles')}}"><span>Roles</span></a></li>
+                </ul>
                 </li>
                 <li class="i_chemical"><a><span>Settings</span></a>
                      <ul>

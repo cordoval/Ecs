@@ -1,6 +1,6 @@
 {% extends '::base.html.twig' %}
 
-{% block title %}Agents{% endblock %}
+{% block title %}Add Position{% endblock %}
 
 {% block styles %}
     {{ parent() }}
@@ -11,20 +11,20 @@
 {% endblock %}
 
 {% block content %}
-<h1>User creation</h1>
 
-<form action="{{ path('agentmanager_create') }}" method="post" {{ form_enctype(form) }}>
+<form action="{{ path('agentmanager_jobs_create') }}" data-ajax="false" method="post" {{ form_enctype(form) }}>
     {{ form_widget(form) }}
     <p>
-        <button type="submit">Create</button>
+        <button type="submit" class="submit">Create</button>
     </p>
 </form>
 
 <ul class="record_actions">
     <li>
-        <a href="{{ path('agentmanager') }}">
+        <a href="{{ path('agentmanager_jobs') }}">
             Back to the list
         </a>
     </li>
 </ul>
+
 {% endblock %}

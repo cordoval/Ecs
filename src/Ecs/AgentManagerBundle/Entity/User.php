@@ -17,99 +17,83 @@ class User extends BaseUser
     /**
      * @var integer $id
      *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
 
     /**
      * @var string $first_name
      *
-     * @ORM\Column(name="first_name", type="string", length=255, nullable=true)
      */
     protected $first_name;
 
     /**
      * @var string $last_name
      *
-     * @ORM\Column(name="last_name", type="string", length=255, nullable=true)
      */
     protected $last_name;
 
     /**
      * @var string $phone
      *
-     * @ORM\Column(name="phone", type="string", length=255, nullable=true)
      */
     protected $phone;
 
     /**
      * @var string $phone2
      *
-     * @ORM\Column(name="phone2", type="string", length=255, nullable=true)
      */
     protected $phone2;
 
     /**
      * @var string $address1
      *
-     * @ORM\Column(name="address1", type="string", length=255, nullable=true)
      */
     protected $address1;
 
     /**
      * @var string $address2
      *
-     * @ORM\Column(name="address2", type="string", length=255, nullable=true)
      */
     protected $address2;
 
     /**
      * @var string $city
      *
-     * @ORM\Column(name="city", type="string", length=255, nullable=true)
      */
     protected $city;
 
     /**
      * @var string $state
      *
-     * @ORM\Column(name="state", type="string", length=255, nullable=true)
      */
     protected $state;
 
     /**
      * @var string $zip
      *
-     * @ORM\Column(name="zip", type="string", length=255, nullable=true)
      */
     protected $zip;
 
     /**
      * @var datetime $startdate
      *
-     * @ORM\Column(name="startdate", type="datetime", nullable=true)
      */
     protected $startdate;
 
     /**
      * @var string $employment_status
      *
-     * @ORM\Column(name="employment_status", type="string", length=255, nullable=true)
      */
     protected $employment_status;
 
     /**
      * @var text $notes
      *
-     * @ORM\Column(name="notes", type="text", nullable=true)
      */
     protected $notes;
 
 	/**
-     * @ORM\ManyToOne(targetEntity="EmployeeJob", inversedBy="users")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+	 * @var EmployeeJob $employeejob
      */
 	protected $employeejob;
 

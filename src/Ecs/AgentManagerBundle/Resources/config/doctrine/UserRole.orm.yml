@@ -1,0 +1,21 @@
+Ecs\AgentManagerBundle\Entity\UserRole:
+    type: entity
+    table: null
+    repositoryClass: Ecs\AgentManagerBundle\Entity\UserRoleRepository
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        internal_name:
+            type: string
+            length: 255
+        display_name:
+            type: string
+            length: 255
+        description:
+            type: string
+            length: 255
+
+    lifecycleCallbacks: {  }

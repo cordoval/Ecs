@@ -4,47 +4,47 @@ namespace Ecs\AgentManagerBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use Ecs\AgentManagerBundle\Entity\EmployeeJobs;
-use Ecs\AgentManagerBundle\Form\EmployeeJobsType;
+use Ecs\AgentManagerBundle\Entity\UserRole;
+use Ecs\AgentManagerBundle\Form\UserRoleType;
 
 /**
- * EmployeeJobs controller.
+ * UserRole controller.
  *
  */
-class EmployeeJobsController extends Controller
+class UserRoleController extends Controller
 {
     /**
-     * Lists all EmployeeJobs entities.
+     * Lists all UserRole entities.
      *
      */
     public function indexAction()
     {
         $em = $this->getDoctrine()->getEntityManager();
 
-        $entities = $em->getRepository('EcsAgentManagerBundle:EmployeeJobs')->findAll();
+        $entities = $em->getRepository('EcsAgentManagerBundle:UserRole')->findAll();
 
-        return $this->render('EcsAgentManagerBundle:EmployeeJobs:index.html.twig', array(
+        return $this->render('EcsAgentManagerBundle:UserRole:index.html.twig', array(
             'entities' => $entities
         ));
     }
 
     /**
-     * Finds and displays a EmployeeJobs entity.
+     * Finds and displays a UserRole entity.
      *
      */
     public function showAction($id)
     {
         $em = $this->getDoctrine()->getEntityManager();
 
-        $entity = $em->getRepository('EcsAgentManagerBundle:EmployeeJobs')->find($id);
+        $entity = $em->getRepository('EcsAgentManagerBundle:UserRole')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find EmployeeJobs entity.');
+            throw $this->createNotFoundException('Unable to find UserRole entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('EcsAgentManagerBundle:EmployeeJobs:show.html.twig', array(
+        return $this->render('EcsAgentManagerBundle:UserRole:show.html.twig', array(
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),
 
@@ -52,29 +52,29 @@ class EmployeeJobsController extends Controller
     }
 
     /**
-     * Displays a form to create a new EmployeeJobs entity.
+     * Displays a form to create a new UserRole entity.
      *
      */
     public function newAction()
     {
-        $entity = new EmployeeJobs();
-        $form   = $this->createForm(new EmployeeJobsType(), $entity);
+        $entity = new UserRole();
+        $form   = $this->createForm(new UserRoleType(), $entity);
 
-        return $this->render('EcsAgentManagerBundle:EmployeeJobs:new.html.twig', array(
+        return $this->render('EcsAgentManagerBundle:UserRole:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView()
         ));
     }
 
     /**
-     * Creates a new EmployeeJobs entity.
+     * Creates a new UserRole entity.
      *
      */
     public function createAction()
     {
-        $entity  = new EmployeeJobs();
+        $entity  = new UserRole();
         $request = $this->getRequest();
-        $form    = $this->createForm(new EmployeeJobsType(), $entity);
+        $form    = $this->createForm(new UserRoleType(), $entity);
         $form->bindRequest($request);
 
         if ($form->isValid()) {
@@ -82,34 +82,34 @@ class EmployeeJobsController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('agentmanager_jobs_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('roles_show', array('id' => $entity->getId())));
             
         }
 
-        return $this->render('EcsAgentManagerBundle:EmployeeJobs:new.html.twig', array(
+        return $this->render('EcsAgentManagerBundle:UserRole:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView()
         ));
     }
 
     /**
-     * Displays a form to edit an existing EmployeeJobs entity.
+     * Displays a form to edit an existing UserRole entity.
      *
      */
     public function editAction($id)
     {
         $em = $this->getDoctrine()->getEntityManager();
 
-        $entity = $em->getRepository('EcsAgentManagerBundle:EmployeeJobs')->find($id);
+        $entity = $em->getRepository('EcsAgentManagerBundle:UserRole')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find EmployeeJobs entity.');
+            throw $this->createNotFoundException('Unable to find UserRole entity.');
         }
 
-        $editForm = $this->createForm(new EmployeeJobsType(), $entity);
+        $editForm = $this->createForm(new UserRoleType(), $entity);
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('EcsAgentManagerBundle:EmployeeJobs:edit.html.twig', array(
+        return $this->render('EcsAgentManagerBundle:UserRole:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -117,20 +117,20 @@ class EmployeeJobsController extends Controller
     }
 
     /**
-     * Edits an existing EmployeeJobs entity.
+     * Edits an existing UserRole entity.
      *
      */
     public function updateAction($id)
     {
         $em = $this->getDoctrine()->getEntityManager();
 
-        $entity = $em->getRepository('EcsAgentManagerBundle:EmployeeJobs')->find($id);
+        $entity = $em->getRepository('EcsAgentManagerBundle:UserRole')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find EmployeeJobs entity.');
+            throw $this->createNotFoundException('Unable to find UserRole entity.');
         }
 
-        $editForm   = $this->createForm(new EmployeeJobsType(), $entity);
+        $editForm   = $this->createForm(new UserRoleType(), $entity);
         $deleteForm = $this->createDeleteForm($id);
 
         $request = $this->getRequest();
@@ -141,10 +141,10 @@ class EmployeeJobsController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('agentmanager_jobs_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('roles_edit', array('id' => $id)));
         }
 
-        return $this->render('EcsAgentManagerBundle:EmployeeJobs:edit.html.twig', array(
+        return $this->render('EcsAgentManagerBundle:UserRole:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -152,7 +152,7 @@ class EmployeeJobsController extends Controller
     }
 
     /**
-     * Deletes a EmployeeJobs entity.
+     * Deletes a UserRole entity.
      *
      */
     public function deleteAction($id)
@@ -164,17 +164,17 @@ class EmployeeJobsController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getEntityManager();
-            $entity = $em->getRepository('EcsAgentManagerBundle:EmployeeJobs')->find($id);
+            $entity = $em->getRepository('EcsAgentManagerBundle:UserRole')->find($id);
 
             if (!$entity) {
-                throw $this->createNotFoundException('Unable to find EmployeeJobs entity.');
+                throw $this->createNotFoundException('Unable to find UserRole entity.');
             }
 
             $em->remove($entity);
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('agentmanager_jobs'));
+        return $this->redirect($this->generateUrl('roles'));
     }
 
     private function createDeleteForm($id)

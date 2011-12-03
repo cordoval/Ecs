@@ -1,0 +1,54 @@
+Ecs\AgentManagerBundle\Entity\EmployeeJob:
+    type: entity
+    table: null
+    fields:
+        id:
+            type: integer
+            length: null
+            precision: 0
+            scale: 0
+            nullable: false
+            unique: false
+            id: true
+            generator:
+                strategy: IDENTITY
+        job_title:
+            type: string
+            length: 255
+            precision: 0
+            scale: 0
+            nullable: false
+            unique: false
+        job_description:
+            type: text
+            length: null
+            precision: 0
+            scale: 0
+            nullable: true
+            unique: false
+        starting_salary:
+            type: float
+            length: null
+            precision: 0
+            scale: 0
+            nullable: true
+            unique: false
+        positions_available:
+            type: smallint
+            length: null
+            precision: 0
+            scale: 0
+            nullable: true
+            unique: false
+        default_role:
+            type: string
+            length: 255
+            precision: 0
+            scale: 0
+            nullable: true
+            unique: false
+    oneToMany:
+        users:
+            targetEntity: Ecs\AgentManagerBundle\Entity\User
+            mappedBy: employeejob
+    lifecycleCallbacks: {  }

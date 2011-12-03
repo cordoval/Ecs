@@ -1,0 +1,30 @@
+roles:
+    pattern:  /
+    defaults: { _controller: "EcsAgentManagerBundle:UserRole:index" }
+
+roles_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "EcsAgentManagerBundle:UserRole:show" }
+
+roles_new:
+    pattern:  /new
+    defaults: { _controller: "EcsAgentManagerBundle:UserRole:new" }
+
+roles_create:
+    pattern:  /create
+    defaults: { _controller: "EcsAgentManagerBundle:UserRole:create" }
+    requirements: { _method: post }
+
+roles_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "EcsAgentManagerBundle:UserRole:edit" }
+
+roles_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "EcsAgentManagerBundle:UserRole:update" }
+    requirements: { _method: post }
+
+roles_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "EcsAgentManagerBundle:UserRole:delete" }
+    requirements: { _method: post }

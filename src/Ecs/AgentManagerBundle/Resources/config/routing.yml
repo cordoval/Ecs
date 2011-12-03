@@ -3,8 +3,12 @@ EcsAgentManagerBundle_Users:
     prefix:   /
 
 EcsAgentManagerBundle_EmployeeJobs:
-    resource: "@EcsAgentManagerBundle/Resources/config/routing/employeejobs.yml"
+    resource: "@EcsAgentManagerBundle/Resources/config/routing/employeejob.yml"
     prefix:   /jobs
+
+EcsAgentManagerBundle_Roles:
+    resource: "@EcsAgentManagerBundle/Resources/config/routing/userrole.yml"
+    prefix:   /agentroles
 
 fos_user_profile:
     resource: "@FOSUserBundle/Resources/config/routing/profile.xml"

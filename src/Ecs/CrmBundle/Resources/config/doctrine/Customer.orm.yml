@@ -131,7 +131,7 @@ Ecs\CrmBundle\Entity\Customer:
             nullable: true
             unique: false
         ismarried:
-            type: booleon
+            type: boolean
             length: null
             precision: 0
             scale: 0
@@ -146,7 +146,7 @@ Ecs\CrmBundle\Entity\Customer:
             unique: false
             column: best_contact_time
         ownhome:
-            type: booleon
+            type: boolean
             length: null
             precision: 0
             scale: 0
@@ -206,4 +206,6 @@ Ecs\CrmBundle\Entity\Customer:
     manyToOne:
         leadType:
             targetEntity: LeadType
+        salesRep:
+            targetEntity: Ecs\AgentManagerBundle\Entity\User
     lifecycleCallbacks: {  }

@@ -1,6 +1,6 @@
 {% extends '::base.html.twig' %}
 
-{% block title %}Agents{% endblock %}
+{% block title %}Emmediate Credit Solutions{% endblock %}
 
 {% block styles %}
     {{ parent() }}
@@ -11,20 +11,22 @@
 {% endblock %}
 
 {% block content %}
-<h1>User creation</h1>
 
-<form action="{{ path('agentmanager_create') }}" method="post" {{ form_enctype(form) }}>
+<h1>UserRole creation</h1>
+
+<form action="{{ path('roles_create') }}" method="post" {{ form_enctype(form) }}>
     {{ form_widget(form) }}
     <p>
-        <button type="submit">Create</button>
+        <button type="submit" class="submit">Create</button>
     </p>
 </form>
 
 <ul class="record_actions">
     <li>
-        <a href="{{ path('agentmanager') }}">
+        <a href="{{ path('roles') }}">
             Back to the list
         </a>
     </li>
 </ul>
+
 {% endblock %}
