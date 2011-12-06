@@ -369,4 +369,31 @@ class User extends BaseUser
     {
         return $this->employeejob;
     }
+    /**
+     * @var Ecs\AgentManagerBundle\Entity\UserRole
+     */
+    private $roles;
+
+
+    /**
+     * Set roles
+     *
+     * @param Ecs\AgentManagerBundle\Entity\UserRole $roles
+     * @return User
+     */
+    public function setRoles(\Ecs\AgentManagerBundle\Entity\UserRole $roles=null)
+    {
+        $this->roles = $roles;
+        return $this;
+    }
+
+    /**
+     * Get roles
+     *
+     * @return Ecs\AgentManagerBundle\Entity\UserRole 
+     */
+    public function getRoles()
+    {
+        return $this->roles;
+    }
 }

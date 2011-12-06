@@ -17,5 +17,9 @@ Ecs\AgentManagerBundle\Entity\UserRole:
         description:
             type: string
             length: 255
+    oneToMany:
+        users:
+            targetEntity: Ecs\AgentManagerBundle\Entity\User
+            mappedBy: Roles
 
     lifecycleCallbacks: {  }

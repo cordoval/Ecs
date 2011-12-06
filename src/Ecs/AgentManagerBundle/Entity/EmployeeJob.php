@@ -198,4 +198,14 @@ class EmployeeJob
     {
         return $this->users;
     }
+
+    /**
+     * Add users
+     *
+     * @param Ecs\AgentManagerBundle\Entity\User $users
+     */
+    public function addUser(\Ecs\AgentManagerBundle\Entity\User $users)
+    {
+        $this->users[] = $users;
+    }
 }
