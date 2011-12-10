@@ -194,4 +194,32 @@ class CustomerController extends Controller
             ->getForm()
         ;
     }
+
+    /**
+     * Register a Customer step 1 of the form.
+     *
+     */
+    public function registerAction() {
+        $entity  = new Customer();
+
+        $form    = $this->createForm(new CustomerType(), $entity);
+        $form->bindRequest($this->getRequest());
+
+        if ($form->isValid()) {
+
+			$entity->setRegisterDate(date('Y-m-d H:i:s'));
+
+            $em = $this->getDoctrine()->getEntityManager();
+			$em->persist($entity);
+            $em->flush();
+
+            /* will redirect to the step2 form */
+            return $this->redirect($this->generateUrl('customer_show', array('id' => $entity->getId())));
+        }
+
+        return $this->render('EcsCrmBundle:Customer:register.html.twig', array(
+            'entity' => $entity,
+            'form'   => $form->createView()
+        ));
+    }
 }

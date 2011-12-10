@@ -14,14 +14,14 @@ use Ecs\CrmBundle\Form\PaymentMethodType;
  * Customer controller.
  *
  */
-class SignupWizardontroller extends Controller
+class SignupWizardController extends Controller
 {
 
     /**
      * Show / save Step 1.
      *
      */
-    public function indexAction()
+    public function step1Action()
     {
         //If this is a get request:
 
@@ -29,7 +29,7 @@ class SignupWizardontroller extends Controller
 
 		$form   = $this->createForm(new CustomerType(), $entity);
 
-        return $this->render('EcsCrmBundle:Customer:new.html.twig', array(
+        return $this->render('EcsCrmBundle:Customer:register.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView()
         ));
@@ -39,7 +39,7 @@ class SignupWizardontroller extends Controller
 
         //$entities = $em->getRepository('EcsCrmBundle:Customer')->findAll();
         
-        return $this->render('EcsCrmBundle:Customer:index.html.twig', array(
+        return $this->render('EcsCrmBundle:Customer:register.html.twig', array(
             'entities' => $entities
         ));
     }
@@ -48,7 +48,7 @@ class SignupWizardontroller extends Controller
      * Finds and displays a Customer entity.
      *
      */
-    public function showAction($id)
+    public function step2Action($id)
     {
         $em =  $this->getDoctrine()->getEntityManager();
 
