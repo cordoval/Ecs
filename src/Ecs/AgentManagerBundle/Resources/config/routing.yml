@@ -1,9 +1,9 @@
 EcsAgentManagerBundle_Users:
-    resource: "@EcsAgentManagerBundle/Resources/config/routing/User.yml"
+    resource: "@EcsAgentManagerBundle/Resources/config/routing/user.yml"
     prefix:   /
 
 EcsAgentManagerBundle_EmployeeJobs:
-    resource: "@EcsAgentManagerBundle/Resources/config/routing/employeejob.yml"
+    resource: "@EcsAgentManagerBundle/Resources/config/routing/employeeJob.yml"
     prefix:   /jobs
 
 EcsAgentManagerBundle_Roles:

@@ -101,7 +101,7 @@ Ecs\AgentManagerBundle\Entity\User:
         employeejob:
             targetEntity: Ecs\AgentManagerBundle\Entity\EmployeeJob
             inversedBy: users
-        roles:
-            targetEntity: Ecs\AgentManagerBundle\Entity\UserRole
-            inversedBy: users
+#        roles:
+#            targetEntity: Ecs\AgentManagerBundle\Entity\UserRole
+#            inversedBy: users
     lifecycleCallbacks: {  }
