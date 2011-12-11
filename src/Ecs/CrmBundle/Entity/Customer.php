@@ -18,7 +18,7 @@ class Customer
     private $id;
 
     /**
-     * @var date $registerDate
+     * @var datetime $registerDate
      */
     private $registerDate;
 
@@ -43,7 +43,7 @@ class Customer
     private $gender;
 
     /**
-     * @var date $dob
+     * @var datetime $dob
      */
     private $dob;
 
@@ -98,7 +98,7 @@ class Customer
     private $country;
 
     /**
-     * @var booleon $ismarried
+     * @var boolean $ismarried
      */
     private $ismarried;
 
@@ -108,7 +108,7 @@ class Customer
     private $bestContactTime;
 
     /**
-     * @var booleon $ownhome
+     * @var boolean $ownhome
      */
     private $ownhome;
 
@@ -153,7 +153,7 @@ class Customer
     private $leadType;
 
     /**
-     * @var Ecs\CrmBundle\Entity\User
+     * @var Ecs\AgentManagerBundle\Entity\User
      */
     private $salesRep;
 
@@ -175,7 +175,7 @@ class Customer
     /**
      * Set registerDate
      *
-     * @param date $registerDate
+     * @param datetime $registerDate
      * @return Customer
      */
     public function setRegisterDate($registerDate)
@@ -187,7 +187,7 @@ class Customer
     /**
      * Get registerDate
      *
-     * @return date 
+     * @return datetime
      */
     public function getRegisterDate()
     {
@@ -285,7 +285,7 @@ class Customer
     /**
      * Set dob
      *
-     * @param date $dob
+     * @param datetime $dob
      * @return Customer
      */
     public function setDob($dob)
@@ -297,7 +297,7 @@ class Customer
     /**
      * Get dob
      *
-     * @return date 
+     * @return datetime
      */
     public function getDob()
     {
@@ -527,10 +527,10 @@ class Customer
     /**
      * Set ismarried
      *
-     * @param booleon $ismarried
+     * @param boolean $ismarried
      * @return Customer
      */
-    public function setIsmarried(\booleon $ismarried)
+    public function setIsmarried($ismarried)
     {
         $this->ismarried = $ismarried;
         return $this;
@@ -539,7 +539,7 @@ class Customer
     /**
      * Get ismarried
      *
-     * @return booleon 
+     * @return boolean
      */
     public function getIsmarried()
     {
@@ -571,10 +571,10 @@ class Customer
     /**
      * Set ownhome
      *
-     * @param booleon $ownhome
+     * @param boolean $ownhome
      * @return Customer
      */
-    public function setOwnhome(\booleon $ownhome)
+    public function setOwnhome($ownhome)
     {
         $this->ownhome = $ownhome;
         return $this;
@@ -583,7 +583,7 @@ class Customer
     /**
      * Get ownhome
      *
-     * @return booleon 
+     * @return boolean
      */
     public function getOwnhome()
     {
@@ -767,10 +767,10 @@ class Customer
     /**
      * Set salesRep
      *
-     * @param Ecs\CrmBundle\Entity\User $salesRep
+     * @param Ecs\AgentManagerBundle\Entity\User $salesRep
      * @return Customer
      */
-    public function setSalesRep(\Ecs\CrmBundle\Entity\User $salesRep=null)
+    public function setSalesRep(\Ecs\AgentManagerBundle\Entity\User $salesRep=null)
     {
         $this->salesRep = $salesRep;
         return $this;
@@ -779,7 +779,7 @@ class Customer
     /**
      * Get salesRep
      *
-     * @return Ecs\CrmBundle\Entity\User 
+     * @return Ecs\AgentManagerBundle\Entity\User
      */
     public function getSalesRep()
     {

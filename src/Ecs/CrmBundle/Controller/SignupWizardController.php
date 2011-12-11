@@ -19,7 +19,6 @@ class SignupWizardController extends Controller
 
     /**
      * Show / save Step 1.
-     *
      */
     public function step1Action()
     {
@@ -31,12 +30,13 @@ class SignupWizardController extends Controller
         if ($request->getMethod() == 'POST') {
             $form->bindRequest($request);
             if($form->isValid()) {
-                $entity->setRegisterDate(date('Y-m-d H:i:s'));
+                $regDate = new DateTime('now');
+                //$entity->setRegisterDate($regDate);
 
                 $em = $this->getDoctrine()->getEntityManager();
          	    $em->persist($entity);
                 $em->flush();
-                return $this->redirect($this->generateUrl('customer_show', array('id' => $entity->getId())));
+                return $this->redirect($this->generateUrl('step2', array('id' => $entity->getId())));
             }
         }
 
@@ -106,16 +106,17 @@ class SignupWizardController extends Controller
 
         if ($request->getMethod() == 'POST') {
 
-        if ($form->isValid()) {
+            if ($form->isValid()) {
 
-			$entity->setRegisterDate(date('Y-m-d H:i:s'));
+			    $entity->setRegisterDate(date('Y-m-d H:i:s'));
 
-            $em = $this->getDoctrine()->getEntityManager();
-			$em->persist($entity);
-            $em->flush();
+                $em = $this->getDoctrine()->getEntityManager();
+			    $em->persist($entity);
+                $em->flush();
 
-            return $this->redirect($this->generateUrl('customer_show', array('id' => $entity->getId())));
+                return $this->redirect($this->generateUrl('customer_show', array('id' => $entity->getId())));
             
+            }
         }
 
         return $this->render('EcsCrmBundle:Customer:new.html.twig', array(

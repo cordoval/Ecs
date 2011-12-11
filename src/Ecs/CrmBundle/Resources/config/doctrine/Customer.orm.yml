@@ -13,12 +13,8 @@ Ecs\CrmBundle\Entity\Customer:
             generator:
                 strategy: IDENTITY
         registerDate:
-            type: date
-            length: null
-            precision: 0
-            scale: 0
+            type: datetime
             nullable: true
-            unique: false
             column: register_date
         firstName:
             type: string
@@ -51,12 +47,8 @@ Ecs\CrmBundle\Entity\Customer:
             nullable: true
             unique: false
         dob:
-            type: date
-            length: null
-            precision: 0
-            scale: 0
+            type: datetime
             nullable: true
-            unique: false
         ssnumber:
             type: string
             length: 9
