@@ -4,19 +4,13 @@ namespace Ecs\AgentManagerBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilder;
+use FOS\UserBundle\Form\Type\RegistrationFormType as BaseType;
 
-class UserType extends AbstractType
+class RegistrationFormType extends BaseType
 {
     public function buildForm(FormBuilder $builder, array $options)
     {
         $builder
-            ->add('username')
-            ->add('email')
-            ->add('enabled')
-            ->add('lastLogin')
-            ->add('locked')
-            ->add('expired')
-            ->add('roles')
             ->add('first_name')
             ->add('last_name')
             ->add('phone')
@@ -29,12 +23,11 @@ class UserType extends AbstractType
             ->add('startdate')
             ->add('employment_status')
             ->add('notes')
-            ->add('employeejob')
         ;
     }
 
     public function getName()
     {
-        return 'ecs_agentmanagerbundle_usertype';
+        return 'ecs_agent_registration';
     }
 }

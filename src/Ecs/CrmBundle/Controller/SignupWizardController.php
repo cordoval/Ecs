@@ -3,6 +3,7 @@
 namespace Ecs\CrmBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 use Ecs\CrmBundle\Entity\Customer;
 use Ecs\CrmBundle\Form\CustomerType;
@@ -13,21 +14,35 @@ use Ecs\CrmBundle\Form\PaymentMethodType;
  * Customer controller.
  *
  */
-class CustomerController extends Controller
+class SignupWizardController extends Controller
 {
 
     /**
-     * Lists all Customer entities.
+     * Show / save Step 1.
      *
      */
-    public function indexAction()
+    public function step1Action()
     {
-        $em = $this->getDoctrine()->getEntityManager();
+		$entity = new Customer();
 
-        $entities = $em->getRepository('EcsCrmBundle:Customer')->findAll();
-        
-        return $this->render('EcsCrmBundle:Customer:index.html.twig', array(
-            'entities' => $entities
+		$form   = $this->createForm(new CustomerType(), $entity);
+
+        $request = $this->get('request');
+        if ($request->getMethod() == 'POST') {
+            $form->bindRequest($request);
+            if($form->isValid()) {
+                $entity->setRegisterDate(date('Y-m-d H:i:s'));
+
+                $em = $this->getDoctrine()->getEntityManager();
+         	    $em->persist($entity);
+                $em->flush();
+                return $this->redirect($this->generateUrl('customer_show', array('id' => $entity->getId())));
+            }
+        }
+
+        return $this->render('EcsCrmBundle:Customer:register.html.twig', array(
+                    'entity' => $entity,
+                    'form'   => $form->createView()
         ));
     }
 
@@ -35,7 +50,7 @@ class CustomerController extends Controller
      * Finds and displays a Customer entity.
      *
      */
-    public function showAction($id)
+    public function step2Action($id)
     {
         $em =  $this->getDoctrine()->getEntityManager();
 
@@ -64,6 +79,8 @@ class CustomerController extends Controller
      */
     public function newAction()
     {
+		$request = Request::createFromGlobals();
+
         $entity = new Customer();
 
         $form   = $this->createForm(new CustomerType(), $entity);
@@ -85,6 +102,10 @@ class CustomerController extends Controller
         $form    = $this->createForm(new CustomerType(), $entity);
         $form->bindRequest($this->getRequest());
 
+        $request = $this->get('request');
+
+        if ($request->getMethod() == 'POST') {
+
         if ($form->isValid()) {
 
 			$entity->setRegisterDate(date('Y-m-d H:i:s'));
@@ -105,7 +126,6 @@ class CustomerController extends Controller
 
     /**
      * Displays a form to edit an existing Customer entity.
-     *
      */
     public function editAction($id)
     {
@@ -193,33 +213,5 @@ class CustomerController extends Controller
             ->add('id', 'hidden')
             ->getForm()
         ;
-    }
-
-    /**
-     * Register a Customer step 1 of the form.
-     *
-     */
-    public function registerAction() {
-        $entity  = new Customer();
-
-        $form    = $this->createForm(new CustomerType(), $entity);
-        $form->bindRequest($this->getRequest());
-
-        if ($form->isValid()) {
-
-			$entity->setRegisterDate(date('Y-m-d H:i:s'));
-
-            $em = $this->getDoctrine()->getEntityManager();
-			$em->persist($entity);
-            $em->flush();
-
-            /* will redirect to the step2 form */
-            return $this->redirect($this->generateUrl('customer_show', array('id' => $entity->getId())));
-        }
-
-        return $this->render('EcsCrmBundle:Customer:register.html.twig', array(
-            'entity' => $entity,
-            'form'   => $form->createView()
-        ));
     }
 }

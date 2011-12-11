@@ -1,0 +1,30 @@
+agentmanager_jobs:
+    pattern:  /
+    defaults: { _controller: "EcsAgentManagerBundle:EmployeeJob:index" }
+
+agentmanager_jobs_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "EcsAgentManagerBundle:EmployeeJob:show" }
+
+agentmanager_jobs_new:
+    pattern:  /new
+    defaults: { _controller: "EcsAgentManagerBundle:EmployeeJob:new" }
+
+agentmanager_jobs_create:
+    pattern:  /create
+    defaults: { _controller: "EcsAgentManagerBundle:EmployeeJob:create" }
+    requirements: { _method: post }
+
+agentmanager_jobs_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "EcsAgentManagerBundle:EmployeeJob:edit" }
+
+agentmanager_jobs_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "EcsAgentManagerBundle:EmployeeJob:update" }
+    requirements: { _method: post }
+
+agentmanager_jobs_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "EcsAgentManagerBundle:EmployeeJob:delete" }
+    requirements: { _method: post }

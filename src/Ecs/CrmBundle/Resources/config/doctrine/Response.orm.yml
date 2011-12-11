@@ -1,0 +1,51 @@
+Ecs\CrmBundle\Entity\Response:
+    type: entity
+    table: null
+    repositoryClass: Ecs\CrmBundle\Entity\ResponseRepository
+    fields:
+        id:
+            type: integer
+            length: null
+            precision: 0
+            scale: 0
+            nullable: false
+            unique: false
+            id: true
+            generator:
+                strategy: IDENTITY
+        transaction:
+            type: integer
+            length: null
+            precision: 0
+            scale: 0
+            nullable: false
+            unique: false
+        responsecode:
+            type: integer
+            length: null
+            precision: 0
+            scale: 0
+            nullable: false
+            unique: false
+        responsecodedetail:
+            type: integer
+            length: null
+            precision: 0
+            scale: 0
+            nullable: false
+            unique: false
+        responsemessage:
+            type: string
+            length: 255
+            precision: 0
+            scale: 0
+            nullable: false
+            unique: false
+        returnstring:
+            type: text
+            length: null
+            precision: 0
+            scale: 0
+            nullable: false
+            unique: false
+    lifecycleCallbacks: {  }

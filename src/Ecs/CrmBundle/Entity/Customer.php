@@ -3,148 +3,164 @@
 namespace Ecs\CrmBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Ecs\CrmBundle\Entity\Customer
  *
- * @ORM\Table(name="customer")
- * @ORM\Entity
+ * @ORM\Table()
  */
 class Customer
 {
     /**
      * @var integer $id
-     *
-     * @ORM\Column(name="id", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
     /**
-     * @ORM\OneToMany(targetEntity="PaymentMethod", mappedBy="customer")
-     */
-    private $paymentMethods;
-    
-    /**
-     * @var datetime $registerDate
-     *
-     * @ORM\Column(name="register_date", type="date", nullable=false)
+     * @var date $registerDate
      */
     private $registerDate;
 
     /**
      * @var string $firstName
-     *
-     * @ORM\Column(name="first_name", type="string", length=30, nullable=false)
      */
     private $firstName;
 
     /**
      * @var string $middleName
-     *
-     * @ORM\Column(name="middle_name", type="string", length=30, nullable=true)
      */
     private $middleName;
 
     /**
      * @var string $lastName
-     *
-     * @ORM\Column(name="lastName", type="string", length=30, nullable=true)
      */
     private $lastName;
 
     /**
      * @var string $gender
-     *
-     * @ORM\Column(name="gender", type="string", length=5, nullable=true)
      */
     private $gender;
 
     /**
      * @var date $dob
-     *
-     * @ORM\Column(name="dob", type="date", nullable=true)
      */
     private $dob;
 
     /**
+     * @var string $ssnumber
+     */
+    private $ssnumber;
+
+    /**
      * @var string $emailAddress
-     *
-     * @ORM\Column(name="email_address", type="string", length=75, nullable=true)
      */
     private $emailAddress;
 
     /**
      * @var string $phonePrimary
-     *
-     * @ORM\Column(name="phone_primary", type="string", length=16, nullable=true)
      */
     private $phonePrimary;
 
     /**
      * @var string $phoneSecondary
-     *
-     * @ORM\Column(name="phone_secondary", type="string", length=16, nullable=true)
      */
     private $phoneSecondary;
 
     /**
      * @var string $address1
-     *
-     * @ORM\Column(name="address1", type="string", length=60, nullable=true)
      */
     private $address1;
 
     /**
      * @var string $address2
-     *
-     * @ORM\Column(name="address2", type="string", length=60, nullable=true)
      */
     private $address2;
 
     /**
      * @var string $city
-     *
-     * @ORM\Column(name="city", type="string", length=60, nullable=true)
      */
     private $city;
 
     /**
      * @var string $state
-     *
-     * @ORM\Column(name="state", type="string", length=2, nullable=true)
      */
     private $state;
 
     /**
      * @var string $zip
-     *
-     * @ORM\Column(name="zip", type="string", length=15, nullable=true)
      */
     private $zip;
 
     /**
      * @var string $country
-     *
-     * @ORM\Column(name="country", type="string", length=2, nullable=true)
      */
     private $country;
 
-        /**
+    /**
+     * @var booleon $ismarried
+     */
+    private $ismarried;
+
+    /**
      * @var string $bestContactTime
-     *
-     * @ORM\Column(name="best_contact_time", type="string", length=25, nullable=true)
      */
     private $bestContactTime;
-     
-    
-    function __construct()
+
+    /**
+     * @var booleon $ownhome
+     */
+    private $ownhome;
+
+    /**
+     * @var decimal $homepayment
+     */
+    private $homepayment;
+
+    /**
+     * @var string $timeataddress
+     */
+    private $timeataddress;
+
+    /**
+     * @var string $employer
+     */
+    private $employer;
+
+    /**
+     * @var string $position
+     */
+    private $position;
+
+    /**
+     * @var string $timeatemployer
+     */
+    private $timeatemployer;
+
+    /**
+     * @var integer $monhlyincome
+     */
+    private $monhlyincome;
+
+    /**
+     * @var \Doctrine\Common\Collections\ArrayCollection
+     */
+    private $paymentMethods;
+
+    /**
+     * @var Ecs\CrmBundle\Entity\LeadType
+     */
+    private $leadType;
+
+    /**
+     * @var Ecs\CrmBundle\Entity\User
+     */
+    private $salesRep;
+
+    public function __construct()
     {
-         $this->paymentMethods = new ArrayCollection();
+        $this->paymentMethods = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    
     
     /**
      * Get id
@@ -159,17 +175,19 @@ class Customer
     /**
      * Set registerDate
      *
-     * @param datetime $registerDate
+     * @param date $registerDate
+     * @return Customer
      */
-    public function setRegisterDate(\DateTime $registerDate = null)
+    public function setRegisterDate($registerDate)
     {
         $this->registerDate = $registerDate;
+        return $this;
     }
 
     /**
      * Get registerDate
      *
-     * @return datetime 
+     * @return date 
      */
     public function getRegisterDate()
     {
@@ -180,10 +198,12 @@ class Customer
      * Set firstName
      *
      * @param string $firstName
+     * @return Customer
      */
     public function setFirstName($firstName)
     {
         $this->firstName = $firstName;
+        return $this;
     }
 
     /**
@@ -200,10 +220,12 @@ class Customer
      * Set middleName
      *
      * @param string $middleName
+     * @return Customer
      */
     public function setMiddleName($middleName)
     {
         $this->middleName = $middleName;
+        return $this;
     }
 
     /**
@@ -217,13 +239,37 @@ class Customer
     }
 
     /**
+     * Set lastName
+     *
+     * @param string $lastName
+     * @return Customer
+     */
+    public function setLastName($lastName)
+    {
+        $this->lastName = $lastName;
+        return $this;
+    }
+
+    /**
+     * Get lastName
+     *
+     * @return string 
+     */
+    public function getLastName()
+    {
+        return $this->lastName;
+    }
+
+    /**
      * Set gender
      *
      * @param string $gender
+     * @return Customer
      */
     public function setGender($gender)
     {
         $this->gender = $gender;
+        return $this;
     }
 
     /**
@@ -240,10 +286,12 @@ class Customer
      * Set dob
      *
      * @param date $dob
+     * @return Customer
      */
     public function setDob($dob)
     {
         $this->dob = $dob;
+        return $this;
     }
 
     /**
@@ -257,13 +305,37 @@ class Customer
     }
 
     /**
+     * Set ssnumber
+     *
+     * @param string $ssnumber
+     * @return Customer
+     */
+    public function setSsnumber($ssnumber)
+    {
+        $this->ssnumber = $ssnumber;
+        return $this;
+    }
+
+    /**
+     * Get ssnumber
+     *
+     * @return string 
+     */
+    public function getSsnumber()
+    {
+        return $this->ssnumber;
+    }
+
+    /**
      * Set emailAddress
      *
      * @param string $emailAddress
+     * @return Customer
      */
     public function setEmailAddress($emailAddress)
     {
         $this->emailAddress = $emailAddress;
+        return $this;
     }
 
     /**
@@ -280,10 +352,12 @@ class Customer
      * Set phonePrimary
      *
      * @param string $phonePrimary
+     * @return Customer
      */
     public function setPhonePrimary($phonePrimary)
     {
         $this->phonePrimary = $phonePrimary;
+        return $this;
     }
 
     /**
@@ -300,10 +374,12 @@ class Customer
      * Set phoneSecondary
      *
      * @param string $phoneSecondary
+     * @return Customer
      */
     public function setPhoneSecondary($phoneSecondary)
     {
         $this->phoneSecondary = $phoneSecondary;
+        return $this;
     }
 
     /**
@@ -320,10 +396,12 @@ class Customer
      * Set address1
      *
      * @param string $address1
+     * @return Customer
      */
     public function setAddress1($address1)
     {
         $this->address1 = $address1;
+        return $this;
     }
 
     /**
@@ -340,10 +418,12 @@ class Customer
      * Set address2
      *
      * @param string $address2
+     * @return Customer
      */
     public function setAddress2($address2)
     {
         $this->address2 = $address2;
+        return $this;
     }
 
     /**
@@ -360,10 +440,12 @@ class Customer
      * Set city
      *
      * @param string $city
+     * @return Customer
      */
     public function setCity($city)
     {
         $this->city = $city;
+        return $this;
     }
 
     /**
@@ -380,10 +462,12 @@ class Customer
      * Set state
      *
      * @param string $state
+     * @return Customer
      */
     public function setState($state)
     {
         $this->state = $state;
+        return $this;
     }
 
     /**
@@ -400,10 +484,12 @@ class Customer
      * Set zip
      *
      * @param string $zip
+     * @return Customer
      */
     public function setZip($zip)
     {
         $this->zip = $zip;
+        return $this;
     }
 
     /**
@@ -420,10 +506,12 @@ class Customer
      * Set country
      *
      * @param string $country
+     * @return Customer
      */
     public function setCountry($country)
     {
         $this->country = $country;
+        return $this;
     }
 
     /**
@@ -437,33 +525,37 @@ class Customer
     }
 
     /**
-     * Set lastName
+     * Set ismarried
      *
-     * @param string $lastName
+     * @param booleon $ismarried
+     * @return Customer
      */
-    public function setLastName($lastName)
+    public function setIsmarried(\booleon $ismarried)
     {
-        $this->lastName = $lastName;
+        $this->ismarried = $ismarried;
+        return $this;
     }
 
     /**
-     * Get lastName
+     * Get ismarried
      *
-     * @return string 
+     * @return booleon 
      */
-    public function getLastName()
+    public function getIsmarried()
     {
-        return $this->lastName;
+        return $this->ismarried;
     }
 
     /**
      * Set bestContactTime
      *
      * @param string $bestContactTime
+     * @return Customer
      */
     public function setBestContactTime($bestContactTime)
     {
         $this->bestContactTime = $bestContactTime;
+        return $this;
     }
 
     /**
@@ -477,22 +569,220 @@ class Customer
     }
 
     /**
-     * Add paymentmethods
+     * Set ownhome
      *
-     * @param Ecs\CrmBundle\Entity\PaymentMethod $paymentmethods
+     * @param booleon $ownhome
+     * @return Customer
      */
-    public function addPaymentMethod(\Ecs\CrmBundle\Entity\PaymentMethod $paymentmethods)
+    public function setOwnhome(\booleon $ownhome)
     {
-        $this->paymentmethods[] = $paymentmethods;
+        $this->ownhome = $ownhome;
+        return $this;
     }
 
     /**
-     * Get paymentmethods
+     * Get ownhome
+     *
+     * @return booleon 
+     */
+    public function getOwnhome()
+    {
+        return $this->ownhome;
+    }
+
+    /**
+     * Set homepayment
+     *
+     * @param decimal $homepayment
+     * @return Customer
+     */
+    public function setHomepayment($homepayment)
+    {
+        $this->homepayment = $homepayment;
+        return $this;
+    }
+
+    /**
+     * Get homepayment
+     *
+     * @return decimal 
+     */
+    public function getHomepayment()
+    {
+        return $this->homepayment;
+    }
+
+    /**
+     * Set timeataddress
+     *
+     * @param string $timeataddress
+     * @return Customer
+     */
+    public function setTimeataddress($timeataddress)
+    {
+        $this->timeataddress = $timeataddress;
+        return $this;
+    }
+
+    /**
+     * Get timeataddress
+     *
+     * @return string 
+     */
+    public function getTimeataddress()
+    {
+        return $this->timeataddress;
+    }
+
+    /**
+     * Set employer
+     *
+     * @param string $employer
+     * @return Customer
+     */
+    public function setEmployer($employer)
+    {
+        $this->employer = $employer;
+        return $this;
+    }
+
+    /**
+     * Get employer
+     *
+     * @return string 
+     */
+    public function getEmployer()
+    {
+        return $this->employer;
+    }
+
+    /**
+     * Set position
+     *
+     * @param string $position
+     * @return Customer
+     */
+    public function setPosition($position)
+    {
+        $this->position = $position;
+        return $this;
+    }
+
+    /**
+     * Get position
+     *
+     * @return string 
+     */
+    public function getPosition()
+    {
+        return $this->position;
+    }
+
+    /**
+     * Set timeatemployer
+     *
+     * @param string $timeatemployer
+     * @return Customer
+     */
+    public function setTimeatemployer($timeatemployer)
+    {
+        $this->timeatemployer = $timeatemployer;
+        return $this;
+    }
+
+    /**
+     * Get timeatemployer
+     *
+     * @return string 
+     */
+    public function getTimeatemployer()
+    {
+        return $this->timeatemployer;
+    }
+
+    /**
+     * Set monhlyincome
+     *
+     * @param integer $monhlyincome
+     * @return Customer
+     */
+    public function setMonhlyincome($monhlyincome)
+    {
+        $this->monhlyincome = $monhlyincome;
+        return $this;
+    }
+
+    /**
+     * Get monhlyincome
+     *
+     * @return integer 
+     */
+    public function getMonhlyincome()
+    {
+        return $this->monhlyincome;
+    }
+
+    /**
+     * Add paymentMethods
+     *
+     * @param Ecs\CrmBundle\Entity\PaymentMethod $paymentMethods
+     */
+    public function addPaymentMethod(\Ecs\CrmBundle\Entity\PaymentMethod $paymentMethods)
+    {
+        $this->paymentMethods[] = $paymentMethods;
+    }
+
+    /**
+     * Get paymentMethods
      *
      * @return Doctrine\Common\Collections\Collection 
      */
-    public function getPaymentmethods()
+    public function getPaymentMethods()
     {
-        return $this->paymentmethods;
+        return $this->paymentMethods;
+    }
+
+    /**
+     * Set leadType
+     *
+     * @param Ecs\CrmBundle\Entity\LeadType $leadType
+     * @return Customer
+     */
+    public function setLeadType(\Ecs\CrmBundle\Entity\LeadType $leadType=null)
+    {
+        $this->leadType = $leadType;
+        return $this;
+    }
+
+    /**
+     * Get leadType
+     *
+     * @return Ecs\CrmBundle\Entity\LeadType 
+     */
+    public function getLeadType()
+    {
+        return $this->leadType;
+    }
+
+    /**
+     * Set salesRep
+     *
+     * @param Ecs\CrmBundle\Entity\User $salesRep
+     * @return Customer
+     */
+    public function setSalesRep(\Ecs\CrmBundle\Entity\User $salesRep=null)
+    {
+        $this->salesRep = $salesRep;
+        return $this;
+    }
+
+    /**
+     * Get salesRep
+     *
+     * @return Ecs\CrmBundle\Entity\User 
+     */
+    public function getSalesRep()
+    {
+        return $this->salesRep;
     }
 }

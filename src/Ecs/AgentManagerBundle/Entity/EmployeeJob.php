@@ -2,6 +2,7 @@
 
 namespace Ecs\AgentManagerBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -14,51 +15,37 @@ class EmployeeJob
 {
     /**
      * @var integer $id
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
      * @var string $job_title
-     *
-     * @ORM\Column(name="job_title", type="string", length=255)
      */
     private $job_title;
 
     /**
      * @var text $job_description
-     *
-     * @ORM\Column(name="job_description", type="text")
      */
     private $job_description;
 
     /**
      * @var float $starting_salary
-     *
-     * @ORM\Column(name="starting_salary", type="float")
      */
     private $starting_salary;
 
     /**
      * @var smallint $positions_available
-     *
-     * @ORM\Column(name="positions_available", type="smallint")
      */
     private $positions_available;
 
     /**
      * @var string $default_role
-     *
-     * @ORM\Column(name="default_role", type="string", length=255)
      */
     private $default_role;
 
-     /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="employeejob")
-     */
+    /**
+	* @var ArrayCollection $users
+    */
 	private $users;
 
 	function __construct()
@@ -66,10 +53,13 @@ class EmployeeJob
 		$this->users = new ArrayCollection();
 	}
 
+	function __toString()
+	{
+		return $this->getJobTitle();
+	}
     /**
      * Get id
-     *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -172,6 +162,7 @@ class EmployeeJob
      */
     public function setDefaultRole($defaultRole)
     {
+		if(is_array($defaultRole)) $defaultRole = serialize($defaultRole);
         $this->default_role = $defaultRole;
         return $this;
     }
@@ -183,7 +174,7 @@ class EmployeeJob
      */
     public function getDefaultRole()
     {
-        return $this->default_role;
+        return unserialize($this->default_role);
     }
 
     /**
@@ -206,5 +197,15 @@ class EmployeeJob
     public function getUsers()
     {
         return $this->users;
+    }
+
+    /**
+     * Add users
+     *
+     * @param Ecs\AgentManagerBundle\Entity\User $users
+     */
+    public function addUser(\Ecs\AgentManagerBundle\Entity\User $users)
+    {
+        $this->users[] = $users;
     }
 }

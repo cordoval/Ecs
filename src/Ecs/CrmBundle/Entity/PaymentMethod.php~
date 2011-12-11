@@ -4,6 +4,7 @@ namespace Ecs\CrmBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+
 /**
  * Ecs\CrmBundle\Entity\PaymentMethod
  *
@@ -17,9 +18,9 @@ class PaymentMethod
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
+     * @ORM\GeneratedValue(strategy="AUTO")    */
     private $id;
+
 
     /**
      * @ORM\ManyToOne(targetEntity="Customer", inversedBy="paymentmethods")

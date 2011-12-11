@@ -5,7 +5,7 @@ namespace Ecs\AgentManagerBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilder;
 
-class EmployeeJobsType extends AbstractType
+class EmployeeJobType extends AbstractType
 {
     public function buildForm(FormBuilder $builder, array $options)
     {
@@ -14,7 +14,15 @@ class EmployeeJobsType extends AbstractType
             ->add('job_description')
             ->add('starting_salary')
             ->add('positions_available')
-            ->add('default_role')
+            ->add('default_role','choice',
+				  array(
+					'choices' => array(
+						'ROLE_SUPER_ADMIN' => 'Super Admin',
+						'ROLE_ADMIN' => 'Admin',
+						'ROLE_CSREP' => 'Customer Service',
+						'ROLE_SALESREP' => 'Sales Rep'
+						),
+					'multiple' => true))
         ;
     }
 

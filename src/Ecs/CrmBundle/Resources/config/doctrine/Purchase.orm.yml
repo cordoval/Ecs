@@ -1,0 +1,86 @@
+Ecs\CrmBundle\Entity\Purchase:
+    type: entity
+    table: null
+    repositoryClass: Ecs\CrmBundle\Entity\PurchaseRepository
+    fields:
+        id:
+            type: integer
+            length: null
+            precision: 0
+            scale: 0
+            nullable: false
+            unique: false
+            id: true
+            generator:
+                strategy: IDENTITY
+        product:
+            type: integer
+            length: null
+            precision: 0
+            scale: 0
+            nullable: false
+            unique: false
+        preferedpaymentmethod:
+            type: integer
+            length: null
+            precision: 0
+            scale: 0
+            nullable: false
+            unique: false
+        purchasedate:
+            type: date
+            length: null
+            precision: 0
+            scale: 0
+            nullable: false
+            unique: false
+        initialamount:
+            type: decimal
+            length: null
+            precision: 0
+            scale: 0
+            nullable: false
+            unique: false
+        reoccurs:
+            type: boolean
+            length: null
+            precision: 0
+            scale: 0
+            nullable: false
+            unique: false
+        billtimes:
+            type: integer
+            length: null
+            precision: 0
+            scale: 0
+            nullable: false
+            unique: false
+        nextbilldate:
+            type: date
+            length: null
+            precision: 0
+            scale: 0
+            nullable: false
+            unique: false
+        failedbillcount:
+            type: integer
+            length: null
+            precision: 0
+            scale: 0
+            nullable: false
+            unique: false
+        timesbilled:
+            type: integer
+            length: null
+            precision: 0
+            scale: 0
+            nullable: false
+            unique: false
+        active:
+            type: boolean
+            length: null
+            precision: 0
+            scale: 0
+            nullable: false
+            unique: false
+    lifecycleCallbacks: {  }

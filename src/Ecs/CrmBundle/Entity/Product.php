@@ -84,24 +84,28 @@ class Product
      */
     private $billdelay;
 
+
+
     /**
-     * Get idproduct
+     * Get id
      *
      * @return integer 
      */
-    public function getIdproduct()
+    public function getId()
     {
-        return $this->idproduct;
+        return $this->id;
     }
 
     /**
      * Set name
      *
      * @param string $name
+     * @return Product
      */
     public function setName($name)
     {
         $this->name = $name;
+        return $this;
     }
 
     /**
@@ -118,10 +122,12 @@ class Product
      * Set price
      *
      * @param decimal $price
+     * @return Product
      */
     public function setPrice($price)
     {
         $this->price = $price;
+        return $this;
     }
 
     /**
@@ -138,10 +144,12 @@ class Product
      * Set description
      *
      * @param string $description
+     * @return Product
      */
     public function setDescription($description)
     {
         $this->description = $description;
+        return $this;
     }
 
     /**
@@ -158,10 +166,12 @@ class Product
      * Set reoccurring
      *
      * @param boolean $reoccurring
+     * @return Product
      */
     public function setReoccurring($reoccurring)
     {
         $this->reoccurring = $reoccurring;
+        return $this;
     }
 
     /**
@@ -178,10 +188,12 @@ class Product
      * Set billFrequency
      *
      * @param smallint $billFrequency
+     * @return Product
      */
     public function setBillFrequency($billFrequency)
     {
         $this->billFrequency = $billFrequency;
+        return $this;
     }
 
     /**
@@ -198,10 +210,12 @@ class Product
      * Set billTimes
      *
      * @param smallint $billTimes
+     * @return Product
      */
     public function setBillTimes($billTimes)
     {
         $this->billTimes = $billTimes;
+        return $this;
     }
 
     /**
@@ -218,10 +232,12 @@ class Product
      * Set trial
      *
      * @param boolean $trial
+     * @return Product
      */
     public function setTrial($trial)
     {
         $this->trial = $trial;
+        return $this;
     }
 
     /**
@@ -238,10 +254,12 @@ class Product
      * Set trialLength
      *
      * @param smallint $trialLength
+     * @return Product
      */
     public function setTrialLength($trialLength)
     {
         $this->trialLength = $trialLength;
+        return $this;
     }
 
     /**
@@ -258,30 +276,21 @@ class Product
      * Set billdelay
      *
      * @param smallint $billdelay
+     * @return Product
      */
-    public function setBillDelay($billdelay)
+    public function setBilldelay($billdelay)
     {
         $this->billdelay = $billdelay;
+        return $this;
     }
 
     /**
-     * Get getBillDelay
+     * Get billdelay
      *
      * @return smallint 
      */
-    public function getBillDelay()
+    public function getBilldelay()
     {
         return $this->billdelay;
-    }
-
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 }

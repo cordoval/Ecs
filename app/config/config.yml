@@ -1,6 +1,6 @@
 imports:
     - { resource: parameters.yml }
-    - { resource: parameters.ini }
+    #- { resource: parameters.ini }
     - { resource: security.yml }
 
 framework:
@@ -79,3 +79,12 @@ fos_user:
     registration:
         form:
             type: ecs_agent_registration
+services:
+   twig.extension.text:
+       class: Twig_Extensions_Extension_Text
+       tags:
+           - { name: twig.extension }
+   twig.extension.debug:
+       class: Twig_Extensions_Extension_Debug
+       tags:
+           - { name: twig.extension }

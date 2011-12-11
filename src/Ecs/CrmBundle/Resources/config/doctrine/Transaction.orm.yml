@@ -1,0 +1,79 @@
+Ecs\CrmBundle\Entity\Transaction:
+    type: entity
+    table: null
+    repositoryClass: Ecs\CrmBundle\Entity\TransactionRepository
+    fields:
+        id:
+            type: integer
+            length: null
+            precision: 0
+            scale: 0
+            nullable: false
+            unique: false
+            id: true
+            generator:
+                strategy: IDENTITY
+        purchase:
+            type: integer
+            length: null
+            precision: 0
+            scale: 0
+            nullable: false
+            unique: false
+        product:
+            type: integer
+            length: null
+            precision: 0
+            scale: 0
+            nullable: false
+            unique: false
+        customer:
+            type: integer
+            length: null
+            precision: 0
+            scale: 0
+            nullable: false
+            unique: false
+        gateway:
+            type: integer
+            length: null
+            precision: 0
+            scale: 0
+            nullable: false
+            unique: false
+        paymentmethod:
+            type: integer
+            length: null
+            precision: 0
+            scale: 0
+            nullable: false
+            unique: false
+        transaction_date:
+            type: datetime
+            length: null
+            precision: 0
+            scale: 0
+            nullable: false
+            unique: false
+        amount:
+            type: decimal
+            length: null
+            precision: 0
+            scale: 0
+            nullable: false
+            unique: false
+        success:
+            type: boolean
+            length: null
+            precision: 0
+            scale: 0
+            nullable: false
+            unique: false
+        response:
+            type: integer
+            length: null
+            precision: 0
+            scale: 0
+            nullable: false
+            unique: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,107 @@
+Ecs\AgentManagerBundle\Entity\User:
+    type: entity
+    table: null
+    repositoryClass: Ecs\AgentManagerBundle\Entity\UserRepository
+    fields:
+        id:
+            type: integer
+            length: null
+            precision: 0
+            scale: 0
+            nullable: false
+            unique: false
+            id: true
+            generator:
+                strategy: IDENTITY
+        first_name:
+            type: string
+            length: 255
+            precision: 0
+            scale: 0
+            nullable: true
+            unique: false
+        last_name:
+            type: string
+            length: 255
+            precision: 0
+            scale: 0
+            nullable: true
+            unique: false
+        phone:
+            type: string
+            length: 255
+            precision: 0
+            scale: 0
+            nullable: true
+            unique: false
+        phone2:
+            type: string
+            length: 255
+            precision: 0
+            scale: 0
+            nullable: true
+            unique: false
+        address1:
+            type: string
+            length: 255
+            precision: 0
+            scale: 0
+            nullable: true
+            unique: false
+        address2:
+            type: string
+            length: 255
+            precision: 0
+            scale: 0
+            nullable: true
+            unique: false
+        city:
+            type: string
+            length: 255
+            precision: 0
+            scale: 0
+            nullable: true
+            unique: false
+        state:
+            type: string
+            length: 255
+            precision: 0
+            scale: 0
+            nullable: true
+            unique: false
+        zip:
+            type: string
+            length: 255
+            precision: 0
+            scale: 0
+            nullable: true
+            unique: false
+        startdate:
+            type: datetime
+            length: null
+            precision: 0
+            scale: 0
+            nullable: true
+            unique: false
+        employment_status:
+            type: string
+            length: 255
+            precision: 0
+            scale: 0
+            nullable: true
+            unique: false
+        notes:
+            type: text
+            length: null
+            precision: 0
+            scale: 0
+            nullable: true
+            unique: false
+    manyToOne:
+        employeejob:
+            targetEntity: Ecs\AgentManagerBundle\Entity\EmployeeJob
+            inversedBy: users
+#        roles:
+#            targetEntity: Ecs\AgentManagerBundle\Entity\UserRole
+#            inversedBy: users
+    lifecycleCallbacks: {  }
