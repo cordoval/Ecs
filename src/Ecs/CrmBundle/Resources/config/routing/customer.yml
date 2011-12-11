@@ -39,6 +39,6 @@ wizard_step1:
     requirements: { _method: get|post }
 
 wizard_step2:
-    pattern: /step2
-    defaults: { _controller: "EcsCrmBundle:SignupWizard:step2", { id : param } }
+    pattern: /step2/{id}
+    defaults: { _controller: "EcsCrmBundle:SignupWizard:step2", id : null } }
     requirements: { _method: get|post }

@@ -17,6 +17,8 @@ use Ecs\CrmBundle\Form\PaymentMethodType;
 class SignupWizardController extends Controller
 {
 
+    protected $customerSession;
+
     /**
      * Show / save Step 1.
      */
@@ -36,6 +38,10 @@ class SignupWizardController extends Controller
                 $em = $this->getDoctrine()->getEntityManager();
          	    $em->persist($entity);
                 $em->flush();
+
+                $this->customerSession = $this->container->get('session');
+                $this->customerSession->set('customerid', $entity->getId());
+
                 return $this->redirect($this->generateUrl('wizard_step2', array('id' => $entity->getId())));
             }
         }
@@ -46,12 +52,25 @@ class SignupWizardController extends Controller
         ));
     }
 
+    public function verifyCustomer($id)
+    {
+        $this->customerSession = $this->container->get('session');
+        return $this->customerSession->get('customerid') == $id ? true : false;
+    }
+
     /**
-     * Finds and displays a Customer entity.
+     * Show / save Step 2.
      *
      */
-    public function step2Action($id)
+    public function step2Action($id = null)
     {
+        if (!$this->verifyCustomer($id) || $id == null )
+        {
+            $logger = $this->get('logger');
+            $logger->err('someone has tried to hack you');
+            throw new \Exception('Hack attempt has been log');
+        }
+
         $em =  $this->getDoctrine()->getEntityManager();
 
         $entity = $em->getRepository('EcsCrmBundle:Customer')->find($id);

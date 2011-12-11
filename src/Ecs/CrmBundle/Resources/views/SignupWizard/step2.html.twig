@@ -1,0 +1,15 @@
+{% extends 'EcsCrmBundle::wizard.html.twig' %}
+
+
+{% block titlestepcontent %}{% endblock %}
+
+{% block stepcontent %}
+<form id="wizard_step_form" action="{{ path('wizard_step1') }}" class="g12" method="post" {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
+        <!--<p>
+            <button type="submit" class="submit">Next</button>
+        </p>-->
+        <hr>
+		<div class="fr"><button type="submit" class="submit btn small icon i_arrow_right" id="move_wizard_next">Continue</button></div>
+    </form>
+{% endblock %}
