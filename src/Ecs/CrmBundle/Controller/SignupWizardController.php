@@ -22,9 +22,28 @@ class SignupWizardController extends Controller
     /**
      * Show / save Step 1.
      */
-    public function step1Action()
+    public function stepNAction()
     {
-		$entity = new Customer();
+        switch ($i) {
+            case 0:
+                echo "i equals 0";
+                break;
+            case 1:
+                echo "i equals 1";
+                break;
+            case 2:
+                echo "i equals 2";
+                break;
+        }
+
+        if (!$this->verifyCustomer($id) || $id == null )
+        {
+            $logger = $this->get('logger');
+            $logger->err('someone has tried to hack you');
+            throw new \Exception('Hack attempt has been log');
+        }
+
+		$entity = new $className();
 
 		$form   = $this->createForm(new CustomerType(), $entity);
 
@@ -64,12 +83,6 @@ class SignupWizardController extends Controller
      */
     public function step2Action($id = null)
     {
-        if (!$this->verifyCustomer($id) || $id == null )
-        {
-            $logger = $this->get('logger');
-            $logger->err('someone has tried to hack you');
-            throw new \Exception('Hack attempt has been log');
-        }
 
         $em =  $this->getDoctrine()->getEntityManager();
 
