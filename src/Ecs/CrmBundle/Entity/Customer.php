@@ -3,9 +3,12 @@
 namespace Ecs\CrmBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Ecs\CrmBundle\Entity\Customer
+ *
+ * @ORM\Table()
  */
 class Customer
 {

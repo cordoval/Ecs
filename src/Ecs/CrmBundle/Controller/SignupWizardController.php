@@ -23,24 +23,26 @@ class SignupWizardController extends Controller
      */
     public function step1Action()
     {
-        //If this is a get request:
-
 		$entity = new Customer();
 
 		$form   = $this->createForm(new CustomerType(), $entity);
 
-        return $this->render('EcsCrmBundle:Customer:register.html.twig', array(
-            'entity' => $entity,
-            'form'   => $form->createView()
-        ));
-		//If this is a post request:
+        $request = $this->get('request');
+        if ($request->getMethod() == 'POST') {
+            $form->bindRequest($request);
+            if($form->isValid()) {
+                $entity->setRegisterDate(date('Y-m-d H:i:s'));
 
-        //$em = $this->getDoctrine()->getEntityManager();
+                $em = $this->getDoctrine()->getEntityManager();
+         	    $em->persist($entity);
+                $em->flush();
+                return $this->redirect($this->generateUrl('customer_show', array('id' => $entity->getId())));
+            }
+        }
 
-        //$entities = $em->getRepository('EcsCrmBundle:Customer')->findAll();
-        
         return $this->render('EcsCrmBundle:Customer:register.html.twig', array(
-            'entities' => $entities
+                    'entity' => $entity,
+                    'form'   => $form->createView()
         ));
     }
 
@@ -100,6 +102,10 @@ class SignupWizardController extends Controller
         $form    = $this->createForm(new CustomerType(), $entity);
         $form->bindRequest($this->getRequest());
 
+        $request = $this->get('request');
+
+        if ($request->getMethod() == 'POST') {
+
         if ($form->isValid()) {
 
 			$entity->setRegisterDate(date('Y-m-d H:i:s'));
@@ -120,7 +126,6 @@ class SignupWizardController extends Controller
 
     /**
      * Displays a form to edit an existing Customer entity.
-     *
      */
     public function editAction($id)
     {
