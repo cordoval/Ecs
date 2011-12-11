@@ -195,6 +195,15 @@ class Customer
     }
 
     /**
+     *
+     */
+    public function initRegisterDate()
+    {
+        $regDate = new \DateTime('now');
+        $this->setRegisterDate($regDate);
+    }
+
+    /**
      * Set firstName
      *
      * @param string $firstName

@@ -22,7 +22,6 @@ class CustomerType extends AbstractType
                                        'birthday',
                                        array(
                                            'widget' => 'choice',
-                                           'input' => 'string',
                                        )
                                    )
             ->add('emailAddress')
@@ -34,14 +33,13 @@ class CustomerType extends AbstractType
             ->add('state')
             ->add('zip')
             ->add('country')
-                ->add(
+             /*->add(
                                                        'registerDate',
                                                        'date',
                                                        array(
                                                            'widget' => 'choice',
-                                                           'input' => 'string',
                                                        )
-                                                   )
+                                                   )*/
         ;
     }
 

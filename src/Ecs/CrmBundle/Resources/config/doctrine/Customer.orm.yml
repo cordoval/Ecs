@@ -196,8 +196,8 @@ Ecs\CrmBundle\Entity\Customer:
             orphanRemoval: false
             orderBy: null
     manyToOne:
-        leadType:
-            targetEntity: LeadType
         salesRep:
             targetEntity: Ecs\AgentManagerBundle\Entity\User
-    lifecycleCallbacks: {  }
+    lifecycleCallbacks:
+        prePersist: [initRegisterDate]
+

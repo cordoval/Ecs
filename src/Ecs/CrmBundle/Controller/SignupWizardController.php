@@ -30,17 +30,17 @@ class SignupWizardController extends Controller
         if ($request->getMethod() == 'POST') {
             $form->bindRequest($request);
             if($form->isValid()) {
-                $regDate = new DateTime('now');
+                //$regDate = new DateTime('now');
                 //$entity->setRegisterDate($regDate);
 
                 $em = $this->getDoctrine()->getEntityManager();
          	    $em->persist($entity);
                 $em->flush();
-                return $this->redirect($this->generateUrl('step2', array('id' => $entity->getId())));
+                return $this->redirect($this->generateUrl('wizard_step2', array('id' => $entity->getId())));
             }
         }
 
-        return $this->render('EcsCrmBundle:Customer:register.html.twig', array(
+        return $this->render('EcsCrmBundle:SignupWizard:index.html.twig', array(
                     'entity' => $entity,
                     'form'   => $form->createView()
         ));

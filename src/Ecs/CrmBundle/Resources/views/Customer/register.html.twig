@@ -17,7 +17,7 @@
         $("#newCustomerForm").wl_Form({ajax:false});
     });
 </script>    
-<form id="newCustomerForm" action="{{ path('customer_register') }}" class="g12" method="post" {{ form_enctype(form) }}>
+<form id="newCustomerForm" action="{{ path('wizard_step1') }}" class="g12" method="post" {{ form_enctype(form) }}>
         {{ form_widget(form) }}
         <p>
             <button type="submit" class="submit">Next</button>

@@ -207,7 +207,7 @@ class CustomerController extends Controller
 
         if ($form->isValid()) {
 
-			$entity->setRegisterDate(date('Y-m-d H:i:s'));
+			//$entity->setRegisterDate(date('Y-m-d H:i:s'));
 
             $em = $this->getDoctrine()->getEntityManager();
 			$em->persist($entity);
